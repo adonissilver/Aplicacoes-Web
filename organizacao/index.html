@@ -1,1 +1,70 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Minha Jornada — Roadmap de Aprendizagem</title>
+<meta name="description" content="Roadmap gamificado de aulas e exercícios." />
 
+<!-- Google Fonts: rounded display face + friendly body face -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Decorative floating background shapes (stars, bubbles, clouds) -->
+  <div class="decor-layer" aria-hidden="true">
+    <span class="decor decor-star" style="top:6%; left:8%;"></span>
+    <span class="decor decor-bubble" style="top:14%; left:82%;"></span>
+    <span class="decor decor-cloud" style="top:22%; left:4%;"></span>
+    <span class="decor decor-star decor-small" style="top:34%; left:90%;"></span>
+    <span class="decor decor-bubble decor-small" style="top:46%; left:6%;"></span>
+    <span class="decor decor-cloud decor-small" style="top:58%; left:88%;"></span>
+    <span class="decor decor-star" style="top:68%; left:10%;"></span>
+    <span class="decor decor-bubble" style="top:80%; left:84%;"></span>
+    <span class="decor decor-triangle" style="top:90%; left:14%;"></span>
+    <span class="decor decor-star decor-small" style="top:96%; left:70%;"></span>
+  </div>
+
+  <!-- Header -->
+  <header class="app-header">
+    <div class="header-inner">
+      <div class="header-course">
+        <span class="header-avatar" role="img" aria-label="Avatar do estudante">🐱‍🎓</span>
+        <div class="header-titles">
+          <h1 class="header-title">Minha Jornada</h1>
+          <p class="header-subtitle">Raciocínio Lógico-Matemático</p>
+        </div>
+      </div>
+      <div class="header-progress">
+        <div class="progress-bar-track" role="progressbar" aria-label="Progresso do curso" aria-valuemin="0" aria-valuemax="100" id="progress-bar" aria-valuenow="0">
+          <div class="progress-bar-fill" id="progress-fill"></div>
+        </div>
+        <span class="progress-label">
+          Progresso: <strong id="progress-percent">0%</strong>
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main roadmap -->
+  <main class="roadmap-wrapper">
+    <svg class="roadmap-path" id="roadmap-path" aria-hidden="true">
+      <path id="roadmap-path-line" fill="none" />
+    </svg>
+
+    <div class="roadmap-track" id="roadmap-track">
+      <!-- Lesson items are rendered here by script.js -->
+    </div>
+  </main>
+
+  <footer class="app-footer">
+    <p>Continue firme — cada aula te aproxima da aprovação. 🎯</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

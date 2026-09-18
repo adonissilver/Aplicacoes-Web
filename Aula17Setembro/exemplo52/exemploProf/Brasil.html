@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<!-- saved from url=(0098)https://ead.fcmsantacasasp.edu.br/ava/pluginfile.php/459998/mod_resource/content/1/Exemplo5.2.html -->
+<html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estados do Sudeste do Brasil</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f4f4f9;
+            margin: 0;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 20px;
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        /* Lado Esquerdo - Listbox */
+        .painel-esquerdo select {
+            width: 120px;
+            height: 200px;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        /* Meio - Botões */
+        .painel-meio {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .painel-meio button {
+            padding: 12px 20px;
+            font-size: 15px;
+            font-weight: bold;
+            color: #fff;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        #btnDetalhes {
+            background-color: #007bff;
+        }
+
+        #btnDetalhes:hover {
+            background-color: #0056b3;
+        }
+
+        #btnAbrirModal {
+            background-color: #28a745;
+        }
+
+        #btnAbrirModal:hover {
+            background-color: #218838;
+        }
+
+        /* Lado Direito - Quadro Divs */
+        .painel-direito {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 250px;
+        }
+
+        .card-info {
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 10px;
+            background-color: #fafafa;
+        }
+
+        .card-info strong {
+            display: block;
+            color: #555;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-bottom: 5px;
+        }
+
+        .card-info div {
+            font-size: 15px;
+            color: #333;
+        }
+
+        /* Regra para manter todas as bandeiras na mesma proporção e tamanho */
+        .card-info img {
+            width: 100px;
+            height: 65px;
+            object-fit: contain;
+            border: 1px solid #ccc;
+            background-color: #fff;
+        }
+
+        /* Estilo do Modal (Janela de Formulário) */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: #fff;
+            padding: 25px;
+            border-radius: 8px;
+            width: 320px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .modal-content h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 12px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 13px;
+            margin-bottom: 4px;
+            color: #666;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+
+        .modal-acoes {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .modal-acoes button {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .btn-salvar {
+            background-color: #28a745;
+            color: white;
+        }
+
+        .btn-cancelar {
+            background-color: #dc3545;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Esquerda: Listbox com as siglas -->
+        <div class="painel-esquerdo">
+            <select id="selectEstados" size="5">
+                <option value="0" selected="">ES</option>
+                <option value="1">MG</option>
+                <option value="2">RJ</option>
+                <option value="3">SP</option>
+            </select>
+        </div>
+
+        <!-- Meio: Botões -->
+        <div class="painel-meio">
+            <button id="btnDetalhes">Detalhes</button>
+            <button id="btnAbrirModal">Novo Estado</button>
+        </div>
+
+        <!-- Direita: Quatro divs/quadros de informações -->
+        <div class="painel-direito">
+            <div class="card-info">
+                <strong>Capital</strong>
+                <div id="divCapital">Vitória</div>
+            </div>
+            <div class="card-info">
+                <strong>Área</strong>
+                <div id="divArea">46.074,447 km²</div>
+            </div>
+            <div class="card-info">
+                <strong>População</strong>
+                <div id="divPopulacao">3.833.712 hab.</div>
+            </div>
+            <div class="card-info">
+                <strong>Bandeira</strong>
+                <div id="divBandeira"><img src="./Estados do Sudeste do Brasil_files/Bandeira_do_Espírito_Santo.svg" alt="Bandeira de ES"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de Formulário para Inserção de Dados -->
+    <div class="modal-overlay" id="modalForm" style="display: none;">
+        <div class="modal-content">
+            <h3>Cadastrar Novo Estado</h3>
+            <div class="form-group">
+                <label for="inputSigla">Sigla/Nome do Estado:</label>
+                <input type="text" id="inputSigla" placeholder="Ex: PR">
+            </div>
+            <div class="form-group">
+                <label for="inputCapital">Capital:</label>
+                <input type="text" id="inputCapital" placeholder="Ex: Curitiba">
+            </div>
+            <div class="form-group">
+                <label for="inputArea">Área:</label>
+                <input type="text" id="inputArea" placeholder="Ex: 199.307,922 km²">
+            </div>
+            <div class="form-group">
+                <label for="inputPopulacao">População:</label>
+                <input type="text" id="inputPopulacao" placeholder="Ex: 11.516.840 hab.">
+            </div>
+            <div class="form-group">
+                <label for="inputBandeira">URL da Bandeira:</label>
+                <input type="url" id="inputBandeira" placeholder="https://exemplo.com/bandeira.svg">
+            </div>
+            <div class="modal-acoes">
+                <button type="button" class="btn-cancelar" id="btnCancelar">Cancelar</button>
+                <button type="button" class="btn-salvar" id="btnSalvar">Salvar</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 5 Arrays paralelos com as informações
+        const siglas    = ["ES", "MG", "RJ", "SP"];
+        const capitais  = ["Vitória", "Belo Horizonte", "Rio de Janeiro", "São Paulo"];
+        const areas     = ["46.074,447 km²", "586.521,121 km²", "43.750,423 km²", "248.219,481 km²"];
+        const populacoes= ["3.833.712 hab.", "20.538.718 hab.", "16.054.524 hab.", "44.411.238 hab."];
+        const bandeiras = [
+            "https://upload.wikimedia.org/wikipedia/commons/4/43/Bandeira_do_Esp%C3%ADrito_Santo.svg",
+            "https://upload.wikimedia.org/wikipedia/commons/f/f4/Bandeira_de_Minas_Gerais.svg",
+            "https://upload.wikimedia.org/wikipedia/commons/7/73/Bandeira_do_estado_do_Rio_de_Janeiro.svg",
+            "https://upload.wikimedia.org/wikipedia/commons/2/2b/Bandeira_do_estado_de_S%C3%A3o_Paulo.svg"
+        ];
+
+        // Mapeamento dos elementos da DOM
+        const selectEstados = document.getElementById("selectEstados");
+        const btnDetalhes   = document.getElementById("btnDetalhes");
+        const btnAbrirModal = document.getElementById("btnAbrirModal");
+        const btnCancelar   = document.getElementById("btnCancelar");
+        const btnSalvar     = document.getElementById("btnSalvar");
+        const modalForm     = document.getElementById("modalForm");
+
+        const divCapital    = document.getElementById("divCapital");
+        const divArea       = document.getElementById("divArea");
+        const divPopulacao  = document.getElementById("divPopulacao");
+        const divBandeira   = document.getElementById("divBandeira");
+
+        // Evento do botão "Detalhes"
+        btnDetalhes.addEventListener("click", function() {
+            const index = selectEstados.value;
+
+            if (index !== null && index !== "") {
+                divCapital.textContent = capitais[index];
+                divArea.textContent = areas[index];
+                divPopulacao.textContent = populacoes[index];
+                divBandeira.innerHTML = `<img src="${bandeiras[index]}" alt="Bandeira de ${siglas[index]}">`;
+            }
+        });
+
+        // Controles de Abertura/Fechamento do Modal
+        btnAbrirModal.addEventListener("click", function() {
+            modalForm.style.display = "flex";
+        });
+
+        btnCancelar.addEventListener("click", function() {
+            modalForm.style.display = "none";
+            limparFormulario();
+        });
+
+        // Evento de Salvar o Novo Estado
+        btnSalvar.addEventListener("click", function() {
+            const sigla = document.getElementById("inputSigla").value.trim();
+            const capital = document.getElementById("inputCapital").value.trim();
+            const area = document.getElementById("inputArea").value.trim();
+            const populacao = document.getElementById("inputPopulacao").value.trim();
+            const bandeira = document.getElementById("inputBandeira").value.trim();
+
+            // Validação simples
+            if (!sigla || !capital || !area || !populacao || !bandeira) {
+                alert("Por favor, preencha todos os campos!");
+                return;
+            }
+
+            // Adiciona os novos valores ao FINAL dos 5 arrays paralelos usando .push()
+            siglas.push(sigla);
+            capitais.push(capital);
+            areas.push(area);
+            populacoes.push(populacao);
+            bandeiras.push(bandeira);
+
+            // Obtém o índice do novo elemento inserido
+            const novoIndex = siglas.length - 1;
+
+            // Cria e adiciona a nova opção na listbox
+            const novaOpcao = document.createElement("option");
+            novaOpcao.value = novoIndex;
+            novaOpcao.textContent = sigla;
+            selectEstados.appendChild(novaOpcao);
+
+            // Seleciona o novo estado adicionado na listbox
+            selectEstados.value = novoIndex;
+
+            // Fecha o modal e limpa os campos
+            modalForm.style.display = "none";
+            limparFormulario();
+        });
+
+        function limparFormulario() {
+            document.getElementById("inputSigla").value = "";
+            document.getElementById("inputCapital").value = "";
+            document.getElementById("inputArea").value = "";
+            document.getElementById("inputPopulacao").value = "";
+            document.getElementById("inputBandeira").value = "";
+        }
+    </script>
+
+
+</body></html>

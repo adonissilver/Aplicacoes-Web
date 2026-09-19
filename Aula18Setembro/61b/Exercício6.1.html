@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Controle de Estoque - Supermercado</title>
+  <style>
+    :root {
+      --primary: #1e3a8a;
+      --secondary: #2563eb;
+      --success: #16a34a;
+      --warning: #d97706;
+      --bg: #f8fafc;
+      --card-bg: #ffffff;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: var(--bg);
+      margin: 0;
+      padding: 20px;
+    }
+
+    header {
+      max-width: 1200px;
+      margin: 0 auto 30px auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+    }
+
+    h1 {
+      margin: 0;
+      color: var(--primary);
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    button {
+      background-color: var(--secondary);
+      color: white;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+      transition: opacity 0.2s;
+    }
+
+    button.btn-warning {
+      background-color: var(--warning);
+    }
+
+    button.btn-success {
+      background-color: var(--success);
+    }
+
+    button:hover {
+      opacity: 0.9;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: 8px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid #e2e8f0;
+    }
+
+    .card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .card-body {
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      flex-grow: 1;
+    }
+
+    .card-title {
+      margin: 0 0 5px 0;
+      font-size: 1.1rem;
+      color: var(--primary);
+    }
+
+    .badge-unidade {
+      align-self: flex-start;
+      background-color: #e0e7ff;
+      color: #3730a3;
+      font-size: 0.8rem;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-weight: 600;
+    }
+
+    .card-info {
+      font-size: 0.9rem;
+      color: #475569;
+    }
+
+    .card-control {
+      margin-top: auto;
+      padding-top: 10px;
+      border-top: 1px solid #f1f5f9;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+
+    .card-control label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #334155;
+    }
+
+    .card-control input[type="number"] {
+      padding: 8px;
+      border: 1px solid #cbd5e1;
+      border-radius: 4px;
+      font-size: 0.95rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Controle de Estoque</h1>
+    <div class="btn-group">
+      <button onclick="carregarEstoque()">Carregar estoque</button>
+      <button class="btn-warning" onclick="atualizarEstoque()">Atualizar estoque</button>
+      <button class="btn-success" onclick="salvarEstoque()">Salvar estoque</button>
+    </div>
+  </header>
+
+  <main class="grid-container" id="gridProdutos"></main>
+
+  <script>
+    let produtosData = [];
+
+    // Carrega o arquivo JSON do estoque
+    async function carregarEstoque() {
+      try {
+        const response = await fetch('estoque.json');
+        produtosData = await response.json();
+        renderizarCards();
+      } catch (error) {
+        console.error('Erro ao carregar o estoque:', error);
+        alert('Não foi possível carregar o arquivo estoque.json.');
+      }
+    }
+
+    // Renderiza os cards de produtos na tela
+    function renderizarCards() {
+      const container = document.getElementById('gridProdutos');
+      container.innerHTML = '';
+
+      produtosData.forEach(produto => {
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.innerHTML = `
+          <img src="${produto.foto}" alt="${produto.nome}">
+          <div class="card-body">
+            <span class="badge-unidade">${produto.unidade}</span>
+            <h3 class="card-title">${produto.nome}</h3>
+            <div class="card-info"><strong>Preço de Compra:</strong> R$ ${produto.precoCompra.toFixed(2)}</div>
+            <div class="card-info"><strong>Preço de Venda:</strong> R$ ${produto.precoVenda.toFixed(2)}</div>
+            <div class="card-info"><strong>Estoque Atual:</strong> ${produto.quantidadeEstoque}</div>
+            
+            <div class="card-control">
+              <label for="mov-${produto.id}">Entrada / Saída (negativo):</label>
+              <input type="number" id="mov-${produto.id}" value="0" step="1" placeholder="Ex: 5 ou -3">
+            </div>
+          </div>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    // Função para atualizar o estoque (vazia)
+    function atualizarEstoque() {
+      // Implementação futura
+    }
+
+    // Função para salvar o estoque (vazia)
+    function salvarEstoque() {
+      // Implementação futura
+    }
+  </script>
+</body>
+</html>

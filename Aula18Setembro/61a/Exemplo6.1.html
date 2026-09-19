@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+  <title>Países da América Latina</title>
+  
+</head>
+<body>
+
+  <header>
+    <h1>América Latina</h1>
+    <div class="btn-group">
+      <button onclick="abrirModal()">Inserir País</button>
+      <button class="btn-save" onclick="salvarInformacoes()">Salvar Informações</button>
+    </div>
+  </header>
+
+  <main class="grid-container" id="gridPaises"></main>
+
+  <!-- Modal para Inserção -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <h2>Inserir Novo País</h2>
+      <form id="formPais" onsubmit="adicionarPais(event)">
+        <div class="form-group">
+          <label for="nome">Nome do País:</label>
+          <input type="text" id="nome" required>
+        </div>
+        <div class="form-group">
+          <label for="populacao">População:</label>
+          <input type="number" id="populacao" required min="1">
+        </div>
+        <div class="form-group">
+          <label for="bandeira">URL da Bandeira:</label>
+          <input type="url" id="bandeira" placeholder="https://..." required>
+        </div>
+        <div class="form-group">
+          <label for="idiomas">Idiomas (separados por vírgula):</label>
+          <input type="text" id="idiomas" placeholder="Ex: Espanhol, Guaraní" required>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-cancel" onclick="fecharModal()">Cancelar</button>
+          <button type="submit">Adicionar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+</body>
+</html>

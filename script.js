@@ -53,7 +53,7 @@ const lessonData = [
   {
     id: 5,
     title: "Aula 5",
-    icon: "businessman.gif",
+    icon: "🚀",
     hint: "Disponível",
     status: "available",
     exercises: [
@@ -99,7 +99,7 @@ const lessonData = [
 
 /* Fallback ilustrações decorativas (usadas quando não há Lottie disponível) */
 const DECOR_FALLBACK = {
-  rocket: "businessman.gif",
+  rocket: "🚀",
   trophy: "🏆",
   bulb: "💡"
 };

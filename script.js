@@ -7,7 +7,7 @@ const lessonData = [
   {
     id: 1,
     title: "Introdução",
-    icon: "wired.gif",
+    icon: "🏠",
     hint: "Primeiros passos",
     status: "completed",
     exercises: [

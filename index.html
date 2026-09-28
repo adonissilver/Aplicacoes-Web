@@ -1,71 +1,601 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Minha Jornada</title>
-<meta name="description" content="Roadmap gamificado de aulas e exercícios." />
 
-<!-- Google Fonts: rounded display face + friendly body face -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
 
-<link rel="stylesheet" href="style.css" />
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Minha Jornada</title>
+
+    <meta
+        name="description"
+        content="Roadmap gamificado de aulas e exercícios."
+    >
+
+
+    <!-- FONTES -->
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+
+    <style>
+
+        /* =====================================================
+           CONFIGURAÇÃO GERAL
+           ===================================================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+
+            margin: 0;
+
+            background-color: #1f4219;
+
+            font-family: "Nunito", sans-serif;
+
+            overflow-x: hidden;
+
+        }
+
+
+
+        /* =====================================================
+           MAPA
+           ===================================================== */
+
+        .mapa-container {
+
+            position: relative;
+
+            width: 100%;
+
+            max-width: 1456px;
+
+            margin: 0 auto;
+
+        }
+
+
+
+        .mapa-imagem {
+
+            display: block;
+
+            width: 100%;
+
+            height: auto;
+
+            user-select: none;
+
+        }
+
+
+
+        /* =====================================================
+           BOTÕES INVISÍVEIS SOBRE OS NÚMEROS DO MAPA
+           ===================================================== */
+
+        .botao-aula {
+
+            position: absolute;
+
+            width: 7.5%;
+
+            aspect-ratio: 1 / 1;
+
+            transform: translate(-50%, -50%);
+
+            border: 0;
+
+            border-radius: 50%;
+
+            background: transparent;
+
+            cursor: pointer;
+
+            z-index: 10;
+
+        }
+
+
+
+        /* Pequeno destaque quando passa o mouse */
+
+        .botao-aula:hover {
+
+            background: rgba(255, 255, 255, 0.12);
+
+            box-shadow:
+                0 0 0 4px rgba(255, 255, 255, 0.65),
+                0 0 22px rgba(255, 238, 0, 0.9);
+
+        }
+
+
+
+        /* Quando o menu daquela aula está aberto */
+
+        .botao-aula.ativo {
+
+            background: rgba(255, 255, 255, 0.10);
+
+            box-shadow:
+                0 0 0 4px white,
+                0 0 28px #ffe600;
+
+        }
+
+
+
+        /* =====================================================
+           POSIÇÃO DE CADA BOTÃO
+           ===================================================== */
+
+
+        /* AULA ZERO */
+
+        #botao-aula-0 {
+
+            left: 2.6%;
+            top: 57.5%;
+
+        }
+
+
+
+        /* AULA 1 */
+
+        #botao-aula-1 {
+
+            left: 32.5%;
+            top: 58.5%;
+
+        }
+
+
+
+        /* AULA 2 */
+
+        #botao-aula-2 {
+
+            left: 20.5%;
+            top: 26.5%;
+
+        }
+
+
+
+        /* AULA 3 */
+
+        #botao-aula-3 {
+
+            left: 48.3%;
+            top: 10%;
+
+        }
+
+
+
+        /* AULA 4 */
+
+        #botao-aula-4 {
+
+            left: 80.1%;
+            top: 18%;
+
+        }
+
+
+
+        /* AULA 5 */
+
+        #botao-aula-5 {
+
+            left: 56.6%;
+            top: 78.5%;
+
+        }
+
+
+
+        /* AULA 6 */
+
+        #botao-aula-6 {
+
+            left: 90.2%;
+            top: 85.5%;
+
+        }
+
+
+
+        /* AULA 7 */
+
+        #botao-aula-7 {
+
+            left: 93.5%;
+            top: 60.5%;
+
+        }
+
+
+
+        /* =====================================================
+           MENU DAS AULAS
+           ===================================================== */
+
+        .menu-aula {
+
+            position: absolute;
+
+            z-index: 30;
+
+            width: 260px;
+
+            padding: 15px;
+
+            background: rgba(255, 255, 255, 0.97);
+
+            border: 4px solid #18cdb9;
+
+            border-radius: 20px;
+
+            box-shadow:
+                0 10px 25px rgba(0, 0, 0, 0.30);
+
+            display: none;
+
+            animation: aparecerMenu 0.18s ease;
+
+        }
+
+
+
+        .menu-aula.aberto {
+
+            display: block;
+
+        }
+
+
+
+        @keyframes aparecerMenu {
+
+            from {
+
+                opacity: 0;
+
+                transform: scale(0.90);
+
+            }
+
+            to {
+
+                opacity: 1;
+
+                transform: scale(1);
+
+            }
+
+        }
+
+
+
+        /* =====================================================
+           CABEÇALHO DO MENU
+           ===================================================== */
+
+        .menu-titulo {
+
+            margin: 0 0 4px 0;
+
+            font-family: "Baloo 2", cursive;
+
+            font-size: 25px;
+
+            font-weight: 800;
+
+            color: #174d47;
+
+        }
+
+
+
+        .menu-descricao {
+
+            display: block;
+
+            margin-bottom: 12px;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            color: #6a7775;
+
+        }
+
+
+
+        /* =====================================================
+           LINKS
+           ===================================================== */
+
+        .menu-link {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            gap: 10px;
+
+            margin-top: 8px;
+
+            padding: 10px 12px;
+
+            text-decoration: none;
+
+            color: #253b39;
+
+            background: #eafff9;
+
+            border: 2px solid #b9eee5;
+
+            border-radius: 12px;
+
+            transition: 0.15s;
+
+        }
+
+
+
+        .menu-link:hover {
+
+            background: #fff6b7;
+
+            border-color: #ffd83d;
+
+            transform: translateX(3px);
+
+        }
+
+
+
+        .menu-link-conteudo {
+
+            display: flex;
+
+            flex-direction: column;
+
+        }
+
+
+
+        .menu-link-titulo {
+
+            font-weight: 800;
+
+            font-size: 14px;
+
+        }
+
+
+
+        .menu-link-subtitulo {
+
+            font-size: 11px;
+
+            color: #75827f;
+
+        }
+
+
+
+        .menu-seta {
+
+            font-size: 20px;
+
+            font-weight: bold;
+
+            color: #13aa99;
+
+        }
+
+
+
+        /* =====================================================
+           RESPONSIVIDADE
+           ===================================================== */
+
+        @media (max-width: 800px) {
+
+            .menu-aula {
+
+                width: 210px;
+
+                padding: 11px;
+
+            }
+
+
+            .menu-titulo {
+
+                font-size: 19px;
+
+            }
+
+
+            .menu-link {
+
+                padding: 7px;
+
+            }
+
+
+            .menu-link-titulo {
+
+                font-size: 12px;
+
+            }
+
+
+            .menu-link-subtitulo {
+
+                font-size: 10px;
+
+            }
+
+        }
+
+
+    </style>
+
 </head>
+
+
+
 <body>
 
-  <!-- Decorative floating background shapes (stars, bubbles, clouds) -->
-  <div class="decor-layer" aria-hidden="true">
-    <span class="decor decor-star" style="top:6%; left:8%;"></span>
-    <span class="decor decor-bubble" style="top:14%; left:82%;"></span>
-    <span class="decor decor-cloud" style="top:22%; left:4%;"></span>
-    <span class="decor decor-star decor-small" style="top:34%; left:90%;"></span>
-    <span class="decor decor-bubble decor-small" style="top:46%; left:6%;"></span>
-    <span class="decor decor-cloud decor-small" style="top:58%; left:88%;"></span>
-    <span class="decor decor-star" style="top:68%; left:10%;"></span>
-    <span class="decor decor-bubble" style="top:80%; left:84%;"></span>
-    <span class="decor decor-triangle" style="top:90%; left:14%;"></span>
-    <span class="decor decor-star decor-small" style="top:96%; left:70%;"></span>
-  </div>
 
-  <!-- Header -->
-  <header class="app-header">
-    <div class="header-inner">
-      <div class="header-course">
-        <span class="header-avatar" role="img" aria-label="Avatar do estudante">🐱‍🎓</span>
-        <div class="header-titles">
-          <h1 class="header-title">Meu Repositório :</h1>
-         <a href="https://github.com/adonissilver/Aplicacoes-Web" target="_blank">
-          <h1>https://github.com/adonissilver/Aplicacoes-Web</h1></a>
-        </div>
-      </div>
-      <div class="header-progress">
-        <div class="progress-bar-track" role="progressbar" aria-label="Progresso do curso" aria-valuemin="0" aria-valuemax="100" id="progress-bar" aria-valuenow="0">
-          <div class="progress-bar-fill" id="progress-fill"></div>
-        </div>
-        <span class="progress-label">
-          Progresso: <strong id="progress-percent">0%</strong>
-        </span>
-      </div>
-    </div>
-  </header>
+    <!-- =====================================================
+         MAPA
+         ===================================================== -->
 
-  <!-- Main roadmap -->
-  <main class="roadmap-wrapper">
-    <svg class="roadmap-path" id="roadmap-path" aria-hidden="true">
-      <path id="roadmap-path-line" fill="none" />
-    </svg>
+    <main
+        class="mapa-container"
+        id="mapa-container"
+    >
 
-    <div class="roadmap-track" id="roadmap-track">
-      <!-- Lesson items are rendered here by script.js -->
-    </div>
-  </main>
 
-  <footer class="app-footer">
-    <p>Continue firme — cada aula te aproxima da aprovação. 🎯</p>
-  </footer>
+        <!-- IMAGEM DO MAPA -->
 
-  <script src="script.js"></script>
+        <img
+            src="screenshot_map_horizantal.png"
+            class="mapa-imagem"
+            id="mapa-imagem"
+            alt="Mapa das aulas"
+            draggable="false"
+        >
+
+
+
+        <!-- =================================================
+             ÁREAS CLICÁVEIS
+
+             Estes botões ficam transparentes exatamente
+             sobre os círculos numerados da imagem.
+             ================================================= -->
+
+
+        <button
+            class="botao-aula"
+            id="botao-aula-0"
+            data-aula="0"
+            aria-label="Abrir Aula Zero"
+        ></button>
+
+
+        <button
+            class="botao-aula"
+            id="botao-aula-1"
+            data-aula="1"
+            aria-label="Abrir Aula 1"
+        ></button>
+
+
+        <button
+            class="botao-aula"
+            id="botao-aula-2"
+            data-aula="2"
+            aria-label="Abrir Aula 2"
+        ></button>
+
+
+        <button
+            class="botao-aula"
+            id="botao-aula-3"
+            data-aula="3"
+            aria-label="Abrir Aula 3"
+        ></button>
+
+
+        <button
+            class="botao-aula"
+            id="botao-aula-4"
+            data-aula="4"
+            aria-label="Abrir Aula 4"
+        ></button>
+
+
+        <button
+            class="botao-aula"
+            id="botao-aula-5"
+            data-aula="5"
+            aria-label="Abrir Aula 5"
+        ></button>
+
+
+        <button
+            class="botao-aula"
+            id="botao-aula-6"
+            data-aula="6"
+            aria-label="Abrir Aula 6"
+        ></button>
+
+
+        <button
+            class="botao-aula"
+            id="botao-aula-7"
+            data-aula="7"
+            aria-label="Abrir Aula 7"
+        ></button>
+
+
+
+        <!-- =================================================
+             O MENU SERÁ CRIADO AQUI PELO JAVASCRIPT
+             ================================================= -->
+
+        <div
+            class="menu-aula"
+            id="menu-aula"
+        ></div>
+
+
+    </main>
+
+
+
+    <!-- JAVASCRIPT -->
+
+    <script src="script.js"></script>
+
+
 </body>
+
 </html>

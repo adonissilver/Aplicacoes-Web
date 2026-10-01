@@ -1,0 +1,749 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+<title>Análise Combinatória</title>
+
+<style>
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+
+        margin: 0;
+
+        width: 100vw;
+        height: 100vh;
+
+        background: #090704;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        overflow: hidden;
+    }
+
+
+    /* ==================================
+       IMAGEM DE FUNDO
+       ================================== */
+
+    .quadro {
+
+        position: relative;
+
+        width: min(100vw, 150vh);
+
+        aspect-ratio: 3 / 2;
+
+        background-image: url("combinatoria.png");
+
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+    }
+
+
+
+    /* ==================================
+       INPUTS
+       ================================== */
+
+    .entrada {
+
+        position: absolute;
+
+        background: transparent;
+
+        border: none;
+        outline: none;
+
+        text-align: center;
+
+        font-family: Georgia, serif;
+
+        font-size: clamp(18px, 2.1vw, 36px);
+
+        font-weight: bold;
+
+        color: #25180b;
+    }
+
+
+
+    /* ==================================
+       PERMUTAÇÃO
+       ================================== */
+
+    #permN {
+
+        left: 57.6%;
+        top: 28.7%;
+
+        width: 9.5%;
+        height: 6.5%;
+    }
+
+
+
+    /* ==================================
+       COMBINAÇÃO
+       ================================== */
+
+    #combN {
+
+        left: 57.6%;
+        top: 49.5%;
+
+        width: 9.5%;
+        height: 6.5%;
+    }
+
+
+    #combK {
+
+        left: 57.6%;
+        top: 56.3%;
+
+        width: 9.5%;
+        height: 6.5%;
+    }
+
+
+
+    /* ==================================
+       ARRANJO
+       ================================== */
+
+    #arrN {
+
+        left: 57.6%;
+        top: 72.5%;
+
+        width: 9.5%;
+        height: 6.5%;
+    }
+
+
+    #arrK {
+
+        left: 57.6%;
+        top: 79.3%;
+
+        width: 9.5%;
+        height: 6.5%;
+    }
+
+
+
+    /* ==================================
+       BOTÕES
+       ================================== */
+
+    .botao {
+
+        position: absolute;
+
+        width: 18.5%;
+        height: 5.5%;
+
+        left: 75.5%;
+
+        background: transparent;
+
+        border: none;
+
+        cursor: pointer;
+
+        border-radius: 8px;
+    }
+
+
+    #botaoPerm {
+
+        top: 25.5%;
+    }
+
+
+    #botaoComb {
+
+        top: 47%;
+    }
+
+
+    #botaoArr {
+
+        top: 70.2%;
+    }
+
+
+
+    .botao:hover {
+
+        box-shadow:
+        0 0 15px rgba(255,190,50,.5),
+        inset 0 0 15px rgba(255,190,50,.15);
+    }
+
+
+    .botao:active {
+
+        background:
+        rgba(255,200,70,.12);
+    }
+
+
+
+    /* ==================================
+       ÁREA DE RESPOSTA
+       ================================== */
+
+    .resposta {
+
+        position: absolute;
+
+        left: 74.5%;
+
+        width: 20%;
+        height: 7%;
+
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        text-align: center;
+
+        font-family: Georgia, serif;
+
+        font-size: clamp(14px, 1.45vw, 25px);
+
+        font-weight: bold;
+
+        color: #24170b;
+    }
+
+
+
+    #resPerm {
+
+        top: 33%;
+    }
+
+
+    #resComb {
+
+        top: 54%;
+    }
+
+
+    #resArr {
+
+        top: 77%;
+    }
+
+
+
+    /* ==================================
+       REMOVE SETAS DOS INPUTS
+       ================================== */
+
+    input::-webkit-inner-spin-button,
+    input::-webkit-outer-spin-button {
+
+        -webkit-appearance: none;
+
+        margin: 0;
+    }
+
+
+    input[type="number"] {
+
+        appearance: textfield;
+    }
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+<div class="quadro">
+
+
+    <!-- ==================================
+         PERMUTAÇÃO
+         ================================== -->
+
+
+    <input
+        type="number"
+        id="permN"
+        class="entrada"
+        min="0"
+    >
+
+
+    <button
+        id="botaoPerm"
+        class="botao"
+        title="Calcular Permutação">
+    </button>
+
+
+    <div
+        id="resPerm"
+        class="resposta">
+
+        P = n!
+
+    </div>
+
+
+
+
+    <!-- ==================================
+         COMBINAÇÃO
+         ================================== -->
+
+
+    <input
+        type="number"
+        id="combN"
+        class="entrada"
+        min="0"
+    >
+
+
+    <input
+        type="number"
+        id="combK"
+        class="entrada"
+        min="0"
+    >
+
+
+    <button
+        id="botaoComb"
+        class="botao"
+        title="Calcular Combinação">
+    </button>
+
+
+    <div
+        id="resComb"
+        class="resposta">
+
+        C(n,k) = n! / [k!(n-k)!]
+
+    </div>
+
+
+
+
+    <!-- ==================================
+         ARRANJO
+         ================================== -->
+
+
+    <input
+        type="number"
+        id="arrN"
+        class="entrada"
+        min="0"
+    >
+
+
+    <input
+        type="number"
+        id="arrK"
+        class="entrada"
+        min="0"
+    >
+
+
+    <button
+        id="botaoArr"
+        class="botao"
+        title="Calcular Arranjo">
+    </button>
+
+
+    <div
+        id="resArr"
+        class="resposta">
+
+        A(n,k) = n! / (n-k)!
+
+    </div>
+
+
+</div>
+
+
+
+<script>
+
+
+/* ============================================
+   FUNÇÃO FATORIAL
+   ============================================ */
+
+function fatorial(numero) {
+
+    let resultado = 1;
+
+    for(let i = 1; i <= numero; i++) {
+
+        resultado = resultado * i;
+
+    }
+
+    return resultado;
+}
+
+
+
+/* ============================================
+   PERMUTAÇÃO
+   ============================================ */
+
+
+const permN =
+document.getElementById("permN");
+
+
+const botaoPerm =
+document.getElementById("botaoPerm");
+
+
+const resPerm =
+document.getElementById("resPerm");
+
+
+
+botaoPerm.addEventListener("click", function() {
+
+
+    const n =
+    Number(permN.value);
+
+
+
+    if(permN.value === "") {
+
+        resPerm.textContent =
+        "Digite n";
+
+        return;
+    }
+
+
+
+    if(n < 0 || !Number.isInteger(n)) {
+
+        resPerm.textContent =
+        "Valor inválido";
+
+        return;
+    }
+
+
+
+    const resultado =
+    fatorial(n);
+
+
+
+    resPerm.innerHTML =
+
+        "P = " +
+        n +
+        "! &nbsp; = &nbsp; " +
+        resultado;
+
+});
+
+
+
+/* Quando mudar o número,
+   volta para fórmula original */
+
+permN.addEventListener("input", function() {
+
+    resPerm.textContent =
+    "P = n!";
+
+});
+
+
+
+
+
+/* ============================================
+   COMBINAÇÃO
+   ============================================ */
+
+
+const combN =
+document.getElementById("combN");
+
+
+const combK =
+document.getElementById("combK");
+
+
+const botaoComb =
+document.getElementById("botaoComb");
+
+
+const resComb =
+document.getElementById("resComb");
+
+
+
+botaoComb.addEventListener("click", function() {
+
+
+    const n =
+    Number(combN.value);
+
+
+    const k =
+    Number(combK.value);
+
+
+
+    if(
+        combN.value === "" ||
+        combK.value === ""
+    ) {
+
+        resComb.textContent =
+        "Digite n e k";
+
+        return;
+    }
+
+
+
+    if(
+        n < 0 ||
+        k < 0 ||
+        !Number.isInteger(n) ||
+        !Number.isInteger(k)
+    ) {
+
+        resComb.textContent =
+        "Valores inválidos";
+
+        return;
+    }
+
+
+
+    if(k > n) {
+
+        resComb.textContent =
+        "k deve ser ≤ n";
+
+        return;
+    }
+
+
+
+    const resultado =
+
+        fatorial(n) /
+
+        (
+            fatorial(k) *
+            fatorial(n - k)
+        );
+
+
+
+    resComb.innerHTML =
+
+        "C(" +
+        n +
+        "," +
+        k +
+        ") = " +
+
+        n +
+        "! / [" +
+
+        k +
+        "!(" +
+
+        n +
+        "-" +
+        k +
+
+        ")!] = " +
+
+        resultado;
+
+});
+
+
+
+function limparCombinacao() {
+
+    resComb.textContent =
+    "C(n,k) = n! / [k!(n-k)!]";
+
+}
+
+
+combN.addEventListener(
+    "input",
+    limparCombinacao
+);
+
+
+combK.addEventListener(
+    "input",
+    limparCombinacao
+);
+
+
+
+
+
+/* ============================================
+   ARRANJO
+   ============================================ */
+
+
+const arrN =
+document.getElementById("arrN");
+
+
+const arrK =
+document.getElementById("arrK");
+
+
+const botaoArr =
+document.getElementById("botaoArr");
+
+
+const resArr =
+document.getElementById("resArr");
+
+
+
+botaoArr.addEventListener("click", function() {
+
+
+    const n =
+    Number(arrN.value);
+
+
+    const k =
+    Number(arrK.value);
+
+
+
+    if(
+        arrN.value === "" ||
+        arrK.value === ""
+    ) {
+
+        resArr.textContent =
+        "Digite n e k";
+
+        return;
+    }
+
+
+
+    if(
+        n < 0 ||
+        k < 0 ||
+        !Number.isInteger(n) ||
+        !Number.isInteger(k)
+    ) {
+
+        resArr.textContent =
+        "Valores inválidos";
+
+        return;
+    }
+
+
+
+    if(k > n) {
+
+        resArr.textContent =
+        "k deve ser ≤ n";
+
+        return;
+    }
+
+
+
+    const resultado =
+
+        fatorial(n) /
+        fatorial(n - k);
+
+
+
+    resArr.innerHTML =
+
+        "A(" +
+        n +
+        "," +
+        k +
+        ") = " +
+
+        n +
+        "! / (" +
+
+        n +
+        "-" +
+        k +
+
+        ")! = " +
+
+        resultado;
+
+});
+
+
+
+function limparArranjo() {
+
+    resArr.textContent =
+    "A(n,k) = n! / (n-k)!";
+
+}
+
+
+arrN.addEventListener(
+    "input",
+    limparArranjo
+);
+
+
+arrK.addEventListener(
+    "input",
+    limparArranjo
+);
+
+
+</script>
+
+
+</body>
+
+</html>

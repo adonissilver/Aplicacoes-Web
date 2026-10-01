@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Função Fatorial</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #111;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            overflow: hidden;
+        }
+
+
+        /* QUADRO COM A IMAGEM */
+
+        .quadro {
+            position: relative;
+
+            width: min(100vw, 150vh);
+            aspect-ratio: 3 / 2;
+
+            background-image: url("gauss.png");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+
+
+        /* CAMPO ONDE O USUÁRIO DIGITA X */
+
+        #valor {
+            position: absolute;
+
+            left: 41.8%;
+            top: 45.7%;
+
+            width: 19.5%;
+            height: 7%;
+
+            background: transparent;
+            border: none;
+            outline: none;
+
+            text-align: center;
+
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(22px, 3vw, 50px);
+            font-weight: bold;
+
+            color: #24170c;
+        }
+
+
+        /* BOTÃO INVISÍVEL SOBRE O CALCULAR DA IMAGEM */
+
+        #calcular {
+            position: absolute;
+
+            left: 42.6%;
+            top: 55.5%;
+
+            width: 17.5%;
+            height: 8.5%;
+
+            background: transparent;
+            border: none;
+
+            cursor: pointer;
+        }
+
+
+        /* PEQUENO EFEITO PARA MOSTRAR QUE É CLICÁVEL */
+
+        #calcular:hover {
+            box-shadow: 0 0 20px rgba(255, 190, 80, 0.6);
+            border-radius: 8px;
+        }
+
+
+        #calcular:active {
+            background: rgba(255, 210, 100, 0.12);
+        }
+
+
+        /* RESULTADO */
+
+        #resultado {
+            position: absolute;
+
+            left: 68.8%;
+            top: 54.1%;
+
+            width: 25%;
+            height: 8.5%;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            font-family: Georgia, "Times New Roman", serif;
+            font-size: clamp(22px, 3vw, 50px);
+            font-weight: bold;
+
+            color: #24170c;
+
+            pointer-events: none;
+        }
+
+
+        /* REMOVE AS SETINHAS DO INPUT */
+
+        input::-webkit-inner-spin-button,
+        input::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type="number"] {
+            appearance: textfield;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="quadro">
+
+
+    <!-- CAMPO X -->
+
+    <input
+        type="number"
+        id="valor"
+        min="0"
+        placeholder=""
+    >
+
+
+    <!-- BOTÃO SOBRE A PALAVRA CALCULAR -->
+
+    <button
+        id="calcular"
+        title="Calcular fatorial">
+    </button>
+
+
+    <!-- RESULTADO -->
+
+    <div id="resultado"></div>
+
+
+</div>
+
+
+
+<script>
+
+    const valor = document.getElementById("valor");
+    const botaoCalcular = document.getElementById("calcular");
+    const resultadoTela = document.getElementById("resultado");
+
+
+    botaoCalcular.addEventListener("click", function() {
+
+        const x = Number(valor.value);
+
+        if(valor.value === "") {
+            resultadoTela.textContent = "";
+            return;
+        }
+
+
+        if(x < 0 || !Number.isInteger(x)) {
+            resultadoTela.textContent = "Valor inválido";
+            return;
+        }
+
+
+        let resultado = 1;
+
+
+        for(let i = 1; i <= x; i++) {
+
+            resultado = resultado * i;
+
+        }
+
+
+        resultadoTela.textContent = x + "! = " + resultado;
+
+    });
+
+
+</script>
+
+
+</body>
+
+</html>

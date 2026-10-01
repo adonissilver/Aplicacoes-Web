@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Exponenciação Passo a Passo</title>
+
+<style>
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body {
+        margin: 0;
+
+        width: 100vw;
+        height: 100vh;
+
+        background: #050403;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        overflow: hidden;
+    }
+
+
+    /* IMAGEM */
+
+    .quadro {
+
+        position: relative;
+
+        width: min(100vw, 150vh);
+
+        aspect-ratio: 3 / 2;
+
+        background-image: url("exponencial.png");
+
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+
+    }
+
+
+    /* =========================
+       BASE
+       ========================= */
+
+    #base {
+
+        position: absolute;
+
+        left: 31.9%;
+        top: 20%;
+
+        width: 8.5%;
+        height: 6.8%;
+
+        background: transparent;
+
+        border: none;
+        outline: none;
+
+        text-align: center;
+
+        font-family: Georgia, serif;
+
+        font-size: clamp(20px, 2.5vw, 44px);
+
+        color: #251604;
+
+        font-weight: bold;
+
+    }
+
+
+
+    /* =========================
+       EXPOENTE
+       ========================= */
+
+    #expoente {
+
+        position: absolute;
+
+        left: 47.2%;
+        top: 20%;
+
+        width: 8.5%;
+        height: 6.8%;
+
+        background: transparent;
+
+        border: none;
+        outline: none;
+
+        text-align: center;
+
+        font-family: Georgia, serif;
+
+        font-size: clamp(20px, 2.5vw, 44px);
+
+        color: #251604;
+
+        font-weight: bold;
+
+    }
+
+
+
+    /* =========================
+       BOTÃO AVANÇAR
+       ========================= */
+
+    #avancar {
+
+        position: absolute;
+
+        left: 59.1%;
+        top: 18.9%;
+
+        width: 22%;
+        height: 8.5%;
+
+        border: none;
+
+        background: transparent;
+
+        cursor: pointer;
+
+        border-radius: 12px;
+
+    }
+
+
+    #avancar:hover {
+
+        box-shadow:
+            0 0 15px rgba(255,190,40,.5),
+            inset 0 0 15px rgba(255,190,40,.15);
+
+    }
+
+
+    #avancar:active {
+
+        background: rgba(255,190,40,.12);
+
+    }
+
+
+
+    /* =========================
+       PASSO
+       ========================= */
+
+    #passo {
+
+        position: absolute;
+
+        left: 34%;
+        top: 36.8%;
+
+        width: 13%;
+
+        text-align: center;
+
+        color: #ffc536;
+
+        font-family: Georgia, serif;
+
+        font-size: clamp(18px, 2vw, 34px);
+
+    }
+
+
+
+    /* =========================
+       CÁLCULO ATUAL
+       ========================= */
+
+    #calculo {
+
+        position: absolute;
+
+        left: 32.8%;
+        top: 47%;
+
+        width: 22%;
+        height: 9%;
+
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        text-align: center;
+
+        font-family: Georgia, serif;
+
+        font-size: clamp(16px, 1.7vw, 29px);
+
+        color: #f3d18a;
+
+    }
+
+
+
+    /* =========================
+       RESULTADO
+       ========================= */
+
+    #resultado {
+
+        position: absolute;
+
+        left: 60.8%;
+        top: 40.5%;
+
+        width: 18%;
+        height: 7%;
+
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        font-family: Georgia, serif;
+
+        font-size: clamp(20px, 2.6vw, 44px);
+
+        font-weight: bold;
+
+        color: #241500;
+
+    }
+
+
+
+    /* =========================
+       PONTO DO GRÁFICO
+       ========================= */
+
+    #ponto {
+
+        position: absolute;
+
+        width: 14px;
+        height: 14px;
+
+        background: #fff1a5;
+
+        border-radius: 50%;
+
+        box-shadow:
+            0 0 8px #ffc72c,
+            0 0 18px #ffc72c,
+            0 0 28px #ff9d00;
+
+        display: none;
+
+        z-index: 10;
+
+        transform: translate(-50%, -50%);
+
+        transition:
+            left .5s ease,
+            top .5s ease;
+
+    }
+
+
+
+    /* =========================
+       MENSAGEM FINAL
+       ========================= */
+
+    #mensagem {
+
+        position: absolute;
+
+        left: 60%;
+        top: 49%;
+
+        width: 20%;
+
+        text-align: center;
+
+        font-family: Georgia, serif;
+
+        color: #ffc536;
+
+        font-size: clamp(13px, 1.2vw, 21px);
+
+    }
+
+
+
+    /* RETIRA SETINHAS */
+
+    input::-webkit-inner-spin-button,
+    input::-webkit-outer-spin-button {
+
+        -webkit-appearance: none;
+
+        margin: 0;
+
+    }
+
+    input[type="number"] {
+
+        appearance: textfield;
+
+    }
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="quadro">
+
+
+    <!-- BASE -->
+
+    <input
+        type="number"
+        id="base"
+        min="1"
+    >
+
+
+
+    <!-- EXPOENTE -->
+
+    <input
+        type="number"
+        id="expoente"
+        min="0"
+    >
+
+
+
+    <!-- BOTÃO -->
+
+    <button
+        id="avancar"
+        title="Avançar um passo">
+    </button>
+
+
+
+    <!-- PASSO -->
+
+    <div id="passo">
+        0 / 0
+    </div>
+
+
+
+    <!-- CÁLCULO ATUAL -->
+
+    <div id="calculo">
+
+    </div>
+
+
+
+    <!-- RESULTADO -->
+
+    <div id="resultado">
+
+    </div>
+
+
+
+    <!-- MENSAGEM -->
+
+    <div id="mensagem">
+
+    </div>
+
+
+
+    <!-- PONTO ANIMADO -->
+
+    <div id="ponto"></div>
+
+
+</div>
+
+
+
+<script>
+
+const baseInput =
+document.getElementById("base");
+
+const expoenteInput =
+document.getElementById("expoente");
+
+const botao =
+document.getElementById("avancar");
+
+const passoTela =
+document.getElementById("passo");
+
+const calculoTela =
+document.getElementById("calculo");
+
+const resultadoTela =
+document.getElementById("resultado");
+
+const mensagem =
+document.getElementById("mensagem");
+
+const ponto =
+document.getElementById("ponto");
+
+
+
+let passoAtual = 0;
+
+let resultado = 1;
+
+let baseAtual = null;
+
+let expoenteAtual = null;
+
+
+
+/* =========================
+   REINICIA QUANDO ALTERAR
+   OS NÚMEROS
+   ========================= */
+
+function reiniciar() {
+
+    passoAtual = 0;
+
+    resultado = 1;
+
+    baseAtual = null;
+
+    expoenteAtual = null;
+
+    passoTela.textContent = "0 / 0";
+
+    calculoTela.textContent = "";
+
+    resultadoTela.textContent = "";
+
+    mensagem.textContent = "";
+
+    ponto.style.display = "none";
+
+}
+
+
+baseInput.addEventListener("input", reiniciar);
+
+expoenteInput.addEventListener("input", reiniciar);
+
+
+
+/* =========================
+   BOTÃO AVANÇAR
+   ========================= */
+
+botao.addEventListener("click", function() {
+
+
+    const base =
+    Number(baseInput.value);
+
+
+    const expoente =
+    Number(expoenteInput.value);
+
+
+
+    /* VERIFICA CAMPOS */
+
+    if(
+        baseInput.value === "" ||
+        expoenteInput.value === ""
+    ) {
+
+        calculoTela.textContent =
+        "Digite a base e o expoente.";
+
+        return;
+
+    }
+
+
+
+    /* VERIFICA EXPOENTE */
+
+    if(
+        expoente < 0 ||
+        !Number.isInteger(expoente)
+    ) {
+
+        calculoTela.textContent =
+        "Use um expoente inteiro positivo.";
+
+        return;
+
+    }
+
+
+
+    /* PRIMEIRO CLIQUE */
+
+    if(baseAtual === null) {
+
+        baseAtual = base;
+
+        expoenteAtual = expoente;
+
+        resultado = 1;
+
+        passoAtual = 0;
+
+    }
+
+
+
+    /* EXPOENTE ZERO */
+
+    if(expoenteAtual === 0) {
+
+        passoTela.textContent = "0 / 0";
+
+        calculoTela.textContent =
+        baseAtual + "⁰ = 1";
+
+        resultadoTela.textContent = "1";
+
+        mensagem.textContent =
+        "Qualquer número diferente de zero elevado a 0 é 1.";
+
+        return;
+
+    }
+
+
+
+    /* JÁ TERMINOU */
+
+    if(passoAtual >= expoenteAtual) {
+
+        mensagem.textContent =
+        "Cálculo concluído.";
+
+        return;
+
+    }
+
+
+
+    /* =========================
+       UMA MULTIPLICAÇÃO
+       ========================= */
+
+
+    const resultadoAnterior =
+    resultado;
+
+
+    resultado =
+    resultado * baseAtual;
+
+
+    passoAtual++;
+
+
+
+    /* MOSTRA SOMENTE
+       O PASSO ATUAL */
+
+    calculoTela.textContent =
+        resultadoAnterior +
+        " × " +
+        baseAtual +
+        " = " +
+        resultado;
+
+
+
+    /* PASSO */
+
+    passoTela.textContent =
+        passoAtual +
+        " / " +
+        expoenteAtual;
+
+
+
+    /* RESULTADO */
+
+    resultadoTela.textContent =
+        resultado;
+
+
+
+    /* MOVE PONTO */
+
+    moverPonto(
+        passoAtual,
+        expoenteAtual
+    );
+
+
+
+    /* FINAL */
+
+    if(passoAtual === expoenteAtual) {
+
+        mensagem.textContent =
+            baseAtual +
+            "^" +
+            expoenteAtual +
+            " = " +
+            resultado;
+
+    }
+
+});
+
+
+
+/* =========================
+   MOVIMENTO DO GRÁFICO
+   ========================= */
+
+function moverPonto(passo, total) {
+
+
+    ponto.style.display = "block";
+
+
+    /*
+       Área aproximada da curva
+       existente na imagem.
+    */
+
+
+    const inicioX = 43;
+
+    const fimX = 90;
+
+
+    const inicioY = 84;
+
+    const fimY = 18;
+
+
+
+    /*
+       posição horizontal
+    */
+
+    let progresso =
+        passo / total;
+
+
+    let x =
+        inicioX +
+        progresso *
+        (fimX - inicioX);
+
+
+
+    /*
+       Movimento exponencial
+       vertical.
+
+       Começa devagar
+       e acelera.
+    */
+
+    let crescimento =
+        Math.pow(progresso, 2.4);
+
+
+    let y =
+        inicioY -
+        crescimento *
+        (inicioY - fimY);
+
+
+
+    ponto.style.left =
+        x + "%";
+
+
+    ponto.style.top =
+        y + "%";
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>

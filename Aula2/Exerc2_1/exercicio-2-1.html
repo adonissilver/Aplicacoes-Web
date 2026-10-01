@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+
+        .container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #ffffff;
+            padding: 24px;
+            border-radius: 12px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        input[type="number"] {
+            width: 80px;
+            padding: 10px;
+            font-size: 18px;
+            text-align: center;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            outline: none;
+        }
+
+        input[type="number"]:focus {
+            border-color: #007bff;
+        }
+
+        .btn-operacao {
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            background-color: #007bff;
+            border: none;
+            border-radius: 8px;
+            padding: 8px 14px;
+            cursor: pointer;
+        }
+
+        .btn-operacao:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <input type="number" id="valor1" placeholder="Digite">
+
+    <button class="btn-operacao" id="porcentagem"><img src="porcentagem.png" height="50px"></button>
+
+    <button class="btn-operacao" id="soma"><img src="adicao.png" height="50px"></button>
+
+    <button class="btn-operacao" id="subtracao"><img src="subtracao.png" height="50px"></button>
+
+    <button class="btn-operacao" id="divisao"><img src="divisao.png" height="50px"></button>
+
+    <button class="btn-operacao" id="exponenciacao"><img src="exponenciacao.png" height="50px"></button>
+
+
+    <input type="number" id="valor2" placeholder="Digite">
+
+    <input type="number" id="resultado" readonly>
+
+</div>
+
+<script>
+
+    // Pegando os três campos
+    const valor1 = document.getElementById("valor1");
+    const valor2 = document.getElementById("valor2");
+    const resultado = document.getElementById("resultado");
+
+
+    // Pegando os botões
+    const botaoPorcentagem = document.getElementById("porcentagem");
+    const botaoSoma = document.getElementById("soma");
+    const botaoSubtracao = document.getElementById("subtracao");
+    const botaoDivisao = document.getElementById("divisao");
+    const botaoExponenciacao = document.getElementById("exponenciacao");
+
+
+    // Botao porcentagem
+    botaoPorcentagem.addEventListener("click", function() {
+
+        const numero1 = Number(valor1.value);
+        const numero2 = Number(valor2.value);
+
+        resultado.value = (numero1 * numero2) / 100;
+
+    });
+
+
+    // Botao soma
+    botaoSoma.addEventListener("click", function() {
+
+        const numero1 = Number(valor1.value);
+        const numero2 = Number(valor2.value);
+
+        resultado.value = numero1 + numero2;
+
+    });
+
+
+    // Botao subtrac
+    botaoSubtracao.addEventListener("click", function() {
+
+        const numero1 = Number(valor1.value);
+        const numero2 = Number(valor2.value);
+
+        resultado.value = numero1 - numero2;
+
+    });
+
+
+    // BBotao divisao
+    botaoDivisao.addEventListener("click", function() {
+
+        const numero1 = Number(valor1.value);
+        const numero2 = Number(valor2.value);
+
+        if (numero2!=0){
+            resultado.value = numero1 / numero2;
+            
+        }
+        
+        else{
+            alert("O segundo número dever ser diferente de Zero");
+        }
+
+
+    });
+
+
+    // botao exponecicaco
+    botaoExponenciacao.addEventListener("click", function() {
+
+        const numero1 = Number(valor1.value);
+        const numero2 = Number(valor2.value);
+
+        resultado.value = numero1 ** numero2;
+
+    });
+
+</script>
+
+</body>
+</html>

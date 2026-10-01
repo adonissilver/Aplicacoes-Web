@@ -82,13 +82,13 @@ const aulas = {
             {
                 titulo: "Exercício 2.1",
                 subtitulo: "Praticar",
-                url: "Aula2/exercicio-2-1.html"
+                url: "Aula2/Exerc2_1/exercicio-2-1.html"
             },
 
             {
                 titulo: "Exercício 2.2",
                 subtitulo: "Somatório e Produtório · Tarefa",
-                url: "Aula2/exercicio-2-2.html"
+                url: "Aula2/Exerc2_2/exercicio-2-2.html"
             },
 
             {

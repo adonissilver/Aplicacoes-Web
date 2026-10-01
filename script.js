@@ -28,7 +28,7 @@ const aulas = {
             {
                 titulo: "Acessar Aula Zero",
                 subtitulo: "Começar por aqui",
-                url: "Aulazero.html"
+                url: "Aula0/Aulazero.html"
             }
 
         ]
@@ -52,13 +52,13 @@ const aulas = {
             {
                 titulo: "Exercício 1.0",
                 subtitulo: "Praticar",
-                url: "#exercicio-1-0"
+                url: "Aula1/exercicio-1-0.html"
             },
 
             {
                 titulo: "Exercício 1.1",
                 subtitulo: "Praticar",
-                url: "#exercicio-1-1"
+                url: "Aula1/exercicio-1-1.html"
             }
 
         ]
@@ -82,25 +82,25 @@ const aulas = {
             {
                 titulo: "Exercício 2.1",
                 subtitulo: "Praticar",
-                url: "#exercicio-2-1"
+                url: "Aula2/exercicio-2-1.html"
             },
 
             {
                 titulo: "Exercício 2.2",
                 subtitulo: "Somatório e Produtório · Tarefa",
-                url: "#exercicio-2-2"
+                url: "Aula2/exercicio-2-2.html"
             },
 
             {
                 titulo: "Exercício 2.3",
                 subtitulo: "Potência e Fatorial · Tarefa",
-                url: "#exercicio-2-3"
+                url: "Aula2/exercicio-2-3.html"
             },
 
             {
                 titulo: "Exercício 2.4",
                 subtitulo: "Combinação",
-                url: "#exercicio-2-4"
+                url: "Aula2/exercicio-2-4.html"
             }
 
         ]
@@ -124,7 +124,7 @@ const aulas = {
             {
                 titulo: "Exercícios — Aula 3",
                 subtitulo: "Abrir lista completa",
-                url: "#exercicios-aula-3"
+                url: "Aula3/exercicios-aula-3.html"
             }
 
         ]
@@ -148,7 +148,7 @@ const aulas = {
             {
                 titulo: "Acessar Aula 4",
                 subtitulo: "Ir para o conteúdo",
-                url: "#aula-4"
+                url: "Aula4/aula-4.html"
             }
 
         ]
@@ -172,25 +172,25 @@ const aulas = {
             {
                 titulo: "Link 5.1.a",
                 subtitulo: "Praticar",
-                url: "#link-5-1-a"
+                url: "Aula5/link-5-1-a.html"
             },
 
             {
                 titulo: "Link 5.1.b",
                 subtitulo: "Praticar",
-                url: "#link-5-1-b"
+                url: "Aula5/link-5-1-b.html"
             },
 
             {
                 titulo: "Link 5.2",
                 subtitulo: "Praticar",
-                url: "#link-5-2"
+                url: "Aula5/link-5-2.html"
             },
 
             {
                 titulo: "Link 5.3",
                 subtitulo: "Praticar",
-                url: "#link-5-3"
+                url: "Aula5/link-5-3.html"
             }
 
         ]
@@ -214,13 +214,13 @@ const aulas = {
             {
                 titulo: "Link 6.1.a",
                 subtitulo: "Praticar",
-                url: "#link-6-1-a"
+                url: "Aula6/link-6-1-a.html"
             },
 
             {
                 titulo: "Link 6.1.b",
                 subtitulo: "Praticar",
-                url: "#link-6-1-b"
+                url: "Aula6/link-6-1-b.html"
             }
 
         ]
@@ -244,7 +244,7 @@ const aulas = {
             {
                 titulo: "Acessar Aula 7",
                 subtitulo: "Ir para o conteúdo",
-                url: "#aula-7"
+                url: "Aula7/aula-7.html"
             }
 
         ]

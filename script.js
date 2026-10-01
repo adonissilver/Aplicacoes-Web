@@ -28,7 +28,7 @@ const aulas = {
             {
                 titulo: "Acessar Aula Zero",
                 subtitulo: "Começar por aqui",
-                url: "Aula0/Aulazero.html"
+                url: "https://adonissilver.github.io/Aplicacoes-Web/Aula0/Aulazero.html"
             }
 
         ]

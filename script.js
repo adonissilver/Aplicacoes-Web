@@ -93,14 +93,24 @@ const aulas = {
 
             {
                 titulo: "Exercício 2.3",
-                subtitulo: "Potência e Fatorial · Tarefa",
-                url: "Aula2/exercicio-2-3.html"
+                subtitulo: "Potência · Tarefa",
+                url: "Aula2/Exerc2_3/potencia/exercicio-2-3.1.html"
             },
+
+           {
+                titulo: "Exercício 2.3",
+                subtitulo: "Fatorial · Tarefa",
+                url: "Aula2/Exerc2_3/fatorial/exercicio-2-3.2.html"
+            },
+
+
+
+           
 
             {
                 titulo: "Exercício 2.4",
                 subtitulo: "Combinação",
-                url: "Aula2/exercicio-2-4.html"
+                url: "Aula2/Exerc2_4/exercicio-2-4.html"
             }
 
         ]

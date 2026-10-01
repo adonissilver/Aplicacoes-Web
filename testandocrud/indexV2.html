@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Escreva sua tarefa</p><br>
+    <div id="postar"></div>
+    <button onclick="limpar()">Limpar</button>
+
+
+    <input type="text" id="minhaTarefa" placeholder="Digite seu nome: "/>
+    <button onclick="SalvarMensagem()">Salvar</button>
+
+    <script>
+        
+
+        
+
+
+
+        function SalvarMensagem(){
+            var a =document.getElementById("minhaTarefa").value
+            console.log(a)
+
+            var b = document.querySelector("#postar");
+            //aponta para a div cujo id é "postar" e guarda e guarda na var b
+
+            b.textContent="Bom dia  "+a;
+            // o conteudo de b é bom dia, esse conteudo de b será inserido no "#postar" que é uma div
+
+           
+
+        }
+
+
+        function limpar(){
+           var limpeza=document.querySelector("#postar")
+           limpeza.textContent=""
+        }
+        
+
+
+
+    </script>
+
+</body>
+</html>

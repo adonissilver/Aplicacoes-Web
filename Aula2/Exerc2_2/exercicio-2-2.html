@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Calculadora de Gauss</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: #111;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .quadro {
+            position: relative;
+
+            width: min(100vw, 150vh);
+            aspect-ratio: 3 / 2;
+
+            background-image: url("gauss.png");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+        }
+
+
+        /* CAMPOS DA CALCULADORA */
+
+        .campo {
+            position: absolute;
+
+            background: transparent;
+            border: none;
+            outline: none;
+
+            text-align: center;
+
+            font-family: Georgia, "Times New Roman", serif;
+            font-weight: bold;
+
+            color: #17120c;
+        }
+
+
+        /* NÚMERO INICIAL */
+
+        #valor1 {
+            left: 47.3%;
+            top: 32.8%;
+
+            width: 8.2%;
+            height: 8%;
+
+            font-size: clamp(20px, 3vw, 48px);
+        }
+
+
+        /* NÚMERO FINAL */
+
+        #valor2 {
+            left: 72.3%;
+            top: 32.8%;
+
+            width: 8.5%;
+            height: 8%;
+
+            font-size: clamp(20px, 3vw, 48px);
+        }
+
+
+        /* RESULTADO */
+
+        #resultado {
+            left: 50.7%;
+            top: 45.5%;
+
+            width: 25%;
+            height: 8%;
+
+            font-size: clamp(20px, 3.2vw, 52px);
+        }
+
+
+        /* BOTÕES INVISÍVEIS SOBRE Σ E Π */
+
+        .botao {
+            position: absolute;
+
+            background: transparent;
+            border: none;
+
+            cursor: pointer;
+
+            z-index: 5;
+        }
+
+
+        /* SOMATÓRIO */
+
+        #soma {
+            left: 59.2%;
+            top: 33.1%;
+
+            width: 4%;
+            height: 8%;
+        }
+
+
+        /* PRODUTÓRIO */
+
+        #produtorio {
+            left: 64.1%;
+            top: 33.1%;
+
+            width: 4%;
+            height: 8%;
+        }
+
+
+        /* EFEITO QUANDO PASSA O MOUSE */
+
+        .botao:hover {
+            border: 2px solid rgba(255, 220, 130, 0.55);
+            box-shadow: 0 0 12px rgba(255, 200, 80, 0.8);
+        }
+
+
+        /* EFEITO AO CLICAR */
+
+        .botao:active {
+            background: rgba(255, 215, 100, 0.20);
+        }
+
+
+        /* REMOVE SETINHAS DOS INPUTS */
+
+        input::-webkit-inner-spin-button,
+        input::-webkit-outer-spin-button {
+            -webkit-appearance: none;
+            margin: 0;
+        }
+
+        input[type="number"] {
+            appearance: textfield;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="quadro">
+
+
+    <!-- NÚMERO INICIAL -->
+
+    <input
+        type="number"
+        id="valor1"
+        class="campo"
+    >
+
+
+    <!-- BOTÃO SOMATÓRIO -->
+
+    <button
+        id="soma"
+        class="botao"
+        title="Calcular Somatório">
+    </button>
+
+
+    <!-- BOTÃO PRODUTÓRIO -->
+
+    <button
+        id="produtorio"
+        class="botao"
+        title="Calcular Produtório">
+    </button>
+
+
+    <!-- NÚMERO FINAL -->
+
+    <input
+        type="number"
+        id="valor2"
+        class="campo"
+    >
+
+
+    <!-- RESULTADO -->
+
+    <input
+        type="text"
+        id="resultado"
+        class="campo"
+        readonly
+    >
+
+
+</div>
+
+
+
+<script>
+
+    const valor1 = document.getElementById("valor1");
+    const valor2 = document.getElementById("valor2");
+    const resultado = document.getElementById("resultado");
+
+    const botaoSoma = document.getElementById("soma");
+    const botaoProdutorio = document.getElementById("produtorio");
+
+
+    // SOMATÓRIO
+
+    botaoSoma.addEventListener("click", function() {
+
+        const numero1 = Number(valor1.value);
+        const numero2 = Number(valor2.value);
+
+        if(valor1.value === "" || valor2.value === "") {
+            resultado.value = "";
+            return;
+        }
+
+        let soma = 0;
+
+        for(let i = numero1; i <= numero2; i++) {
+            soma = soma + i;
+        }
+
+        resultado.value = soma;
+
+    });
+
+
+
+    // PRODUTÓRIO
+
+    botaoProdutorio.addEventListener("click", function() {
+
+        const numero1 = Number(valor1.value);
+        const numero2 = Number(valor2.value);
+
+        if(valor1.value === "" || valor2.value === "") {
+            resultado.value = "";
+            return;
+        }
+
+        let produto = 1;
+
+        for(let i = numero1; i <= numero2; i++) {
+            produto = produto * i;
+        }
+
+        resultado.value = produto;
+
+    });
+
+
+</script>
+
+
+</body>
+</html>

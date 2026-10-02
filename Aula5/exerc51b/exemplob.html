@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+   <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Estados do Sudeste do Brasil</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+    <div class="container">
+        <!-- Esquerda: Listbox com as siglas -->
+        <div class="painel-esquerdo">
+            <select id="selectEstados" size="4">
+                <option value="0" selected>ES</option>
+                <option value="1">MG</option>
+                <option value="2">RJ</option>
+                <option value="3">SP</option>
+            </select>
+        </div>
+
+        <!-- Meio: Botão -->
+        <div class="painel-meio">
+            <button id="btnDetalhes">Detalhes</button>
+        </div>
+
+        <!-- Direita: Quatro divs/quadros de informações -->
+        <div class="painel-direito">
+            <div class="card-info">
+                <strong>Nome Completo</strong>
+                <div id="divCapital">-</div>
+            </div>
+            <div class="card-info">
+                <strong>CPF</strong>
+                <div id="divArea">-</div>
+            </div>
+            <div class="card-info">
+                <strong>Queixa</strong>
+                <div id="divPopulacao">-</div>
+            </div>
+            <div class="card-info">
+                <strong>Foto</strong>
+                <div id="divBandeira">-</div>
+            </div>
+        </div>
+    </div>
+
+    
+
+</body>
+</html>

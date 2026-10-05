@@ -1,0 +1,32 @@
+[
+    {
+        "nome": "Fulano de Tal",
+        "cpf": "164.173.429-00",
+        "queixa": "Estresse",
+        "foto": "pexels_a.jpg"
+    },
+    {
+        "nome": "Beltrano da Silva",
+        "cpf": "027.830.661-00",
+        "queixa": "Ansiedade",
+        "foto": "pexels_b.jpg"
+    },
+    {
+        "nome": "Ciclano dos Santos",
+        "cpf": "142.470.762-00",
+        "queixa": "Burnout",
+        "foto": "pexels_c.jpg"
+    },
+    {
+        "nome": "Kumar",
+        "cpf": "123",
+        "queixa": "cansaço",
+        "foto": "pexels_d"
+    },
+    {
+        "nome": "kumar2",
+        "cpf": "123",
+        "queixa": "abc",
+        "foto": "C:\\Users\\Familiar\\Desktop\\Aula 5 Exemplo53 memoria ARQUIVO\\pexels_d.jpg"
+    }
+]

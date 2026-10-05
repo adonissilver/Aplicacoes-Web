@@ -1,0 +1,295 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+
+body {
+    min-height: 100vh;
+    background-color: #f4f4f9;
+    margin: 0;
+    padding: 30px;
+}
+
+
+.aplicacao {
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+
+/* ================================================= */
+/* CABEÇALHO */
+/* ================================================= */
+
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-bottom: 20px;
+}
+
+
+.cabecalho h1 {
+    margin: 0;
+    color: #333;
+}
+
+
+.cabecalho p {
+    margin-top: 5px;
+    color: #777;
+}
+
+
+/* ================================================= */
+/* BOTÕES SUPERIORES */
+/* ================================================= */
+
+.acoes {
+    display: flex;
+    gap: 10px;
+}
+
+
+button {
+    padding: 10px 16px;
+
+    font-size: 14px;
+    font-weight: bold;
+
+    color: white;
+    background-color: #007bff;
+
+    border: none;
+    border-radius: 4px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+
+button:hover {
+    background-color: #0056b3;
+}
+
+
+/* ================================================= */
+/* CONTAINER PRINCIPAL */
+/* ================================================= */
+
+.container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    gap: 25px;
+
+    background-color: white;
+
+    padding: 30px;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 4px 8px
+        rgba(0, 0, 0, 0.1);
+}
+
+
+/* ================================================= */
+/* PAINEL ESQUERDO */
+/* ================================================= */
+
+.painel-esquerdo {
+    display: flex;
+    flex-direction: column;
+
+    gap: 8px;
+}
+
+
+.painel-esquerdo label {
+    font-weight: bold;
+    color: #555;
+}
+
+
+.painel-esquerdo select {
+    width: 220px;
+    height: 220px;
+
+    padding: 10px;
+
+    font-size: 15px;
+
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+
+/* ================================================= */
+/* PAINEL DO MEIO */
+/* ================================================= */
+
+.painel-meio {
+    display: flex;
+    align-items: center;
+}
+
+
+/* ================================================= */
+/* PAINEL DIREITO */
+/* ================================================= */
+
+.painel-direito {
+    display: flex;
+    flex-direction: column;
+
+    gap: 10px;
+
+    width: 300px;
+}
+
+
+.card-info {
+    border: 1px solid #ddd;
+
+    border-radius: 4px;
+
+    padding: 12px;
+
+    background-color: #fafafa;
+}
+
+
+.card-info strong {
+    display: block;
+
+    color: #555;
+
+    font-size: 12px;
+
+    text-transform: uppercase;
+
+    margin-bottom: 5px;
+}
+
+
+.card-info div {
+    font-size: 15px;
+
+    color: #333;
+}
+
+
+.card-info img {
+    max-width: 150px;
+
+    max-height: 150px;
+
+    object-fit: cover;
+
+    border-radius: 4px;
+
+    border: 1px solid #ccc;
+}
+
+
+/* ================================================= */
+/* MODAL */
+/* ================================================= */
+
+.modal {
+    display: none;
+
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-color:
+        rgba(0, 0, 0, 0.5);
+
+    justify-content: center;
+    align-items: center;
+}
+
+
+.modal-conteudo {
+    width: 400px;
+
+    background-color: white;
+
+    padding: 25px;
+
+    border-radius: 8px;
+
+    box-shadow:
+        0 5px 20px
+        rgba(0, 0, 0, 0.3);
+}
+
+
+.modal-conteudo h2 {
+    margin-top: 0;
+}
+
+
+.modal-conteudo label {
+    display: block;
+
+    margin-top: 15px;
+    margin-bottom: 5px;
+
+    font-weight: bold;
+
+    color: #555;
+}
+
+
+.modal-conteudo input,
+.modal-conteudo textarea {
+    width: 100%;
+
+    padding: 10px;
+
+    border: 1px solid #ccc;
+
+    border-radius: 4px;
+
+    font-size: 14px;
+}
+
+
+.modal-conteudo textarea {
+    height: 80px;
+
+    resize: vertical;
+}
+
+
+.botoes-modal {
+    display: flex;
+
+    justify-content: flex-end;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+
+#btnFecharModal {
+    background-color: #777;
+}
+
+
+#btnFecharModal:hover {
+    background-color: #555;
+}

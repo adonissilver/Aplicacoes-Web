@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Cadastro de Pacientes</title><link rel="stylesheet" href="style.css"><script src="script.js" defer></script>
+</head>
+<body>
+<main class="aplicacao">
+  <header class="cabecalho"><div><h1>Pacientes</h1><p>Cadastro e consulta de pacientes</p></div><div class="acoes">
+    <button id="btnAdicionarPaciente">+ Adicionar Paciente</button><button id="btnSalvarJSON">Salvar JSON</button><button id="btnCarregarDados">Carregar Dados</button>
+  </div></header>
+  <section class="container">
+    <div class="painel-esquerdo"><label for="selectPacientes">Pacientes cadastrados</label><select id="selectPacientes" size="8"></select></div>
+    <div class="painel-meio"><button id="btnDetalhes">Detalhes</button></div>
+    <div class="painel-direito">
+      <div class="card-info"><strong>Nome completo</strong><div id="divNomePaciente">-</div></div>
+      <div class="card-info"><strong>CPF</strong><div id="divCPF">-</div></div>
+      <div class="card-info"><strong>Queixa</strong><div id="divQueixa">-</div></div>
+      <div class="card-info"><strong>Foto</strong><div id="divFoto">-</div></div>
+    </div>
+  </section>
+</main>
+<div id="modalPaciente" class="modal" aria-hidden="true"><form id="formPaciente" class="modal-conteudo">
+  <h2>Adicionar Paciente</h2>
+  <label for="inputNome">Nome completo</label><input id="inputNome" type="text">
+  <label for="inputCPF">CPF</label><input id="inputCPF" type="text">
+  <label for="inputQueixa">Queixa</label><textarea id="inputQueixa"></textarea>
+  <label for="inputFotoURL">Endereço web da foto</label>
+  <input id="inputFotoURL" type="url" placeholder="https://exemplo.com/foto.jpg">
+  <div class="botoes-modal"><button id="btnSalvarPaciente" type="submit">Salvar</button><button id="btnFecharModal" type="button">Cancelar</button></div>
+</form></div>
+<input id="inputArquivoJSON" type="file" accept=".json,application/json" hidden>
+</body></html>

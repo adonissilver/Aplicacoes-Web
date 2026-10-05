@@ -1,0 +1,460 @@
+/* =====================================================
+   CONFIGURAÇÃO GERAL
+   ===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+
+body {
+
+    margin: 0;
+
+    background-color: #1f4219;
+
+    font-family: "Nunito", sans-serif;
+
+    overflow-x: hidden;
+
+}
+
+
+/* =====================================================
+   MAPA
+   ===================================================== */
+
+.mapa-container {
+
+    position: relative;
+
+    width: 100%;
+
+    max-width: 1456px;
+
+    margin: 0 auto;
+
+}
+
+
+.mapa-imagem {
+
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+
+    user-select: none;
+
+}
+
+
+/* =====================================================
+   PERSONAGEM BUSINESSMAN
+   ===================================================== */
+
+.businessman {
+
+    position: absolute;
+
+    width: 9%;
+
+    height: auto;
+
+    left: 38%;
+
+    top: 27%;
+
+    transform: translate(-50%, -50%);
+
+    z-index: 8;
+
+    pointer-events: none;
+
+    user-select: none;
+
+}
+
+
+/* =====================================================
+   BOTÕES INVISÍVEIS SOBRE OS NÚMEROS DO MAPA
+   ===================================================== */
+
+.botao-aula {
+
+    position: absolute;
+
+    width: 7.5%;
+
+    aspect-ratio: 1 / 1;
+
+    transform: translate(-50%, -50%);
+
+    border: 0;
+
+    border-radius: 50%;
+
+    background: transparent;
+
+    cursor: pointer;
+
+    z-index: 10;
+
+}
+
+
+/* =====================================================
+   DESTAQUE QUANDO PASSA O MOUSE
+   ===================================================== */
+
+.botao-aula:hover {
+
+    background: rgba(255, 255, 255, 0.12);
+
+    box-shadow:
+        0 0 0 4px rgba(255, 255, 255, 0.65),
+        0 0 22px rgba(255, 238, 0, 0.9);
+
+}
+
+
+/* =====================================================
+   BOTÃO ATIVO
+   ===================================================== */
+
+.botao-aula.ativo {
+
+    background: rgba(255, 255, 255, 0.10);
+
+    box-shadow:
+        0 0 0 4px white,
+        0 0 28px #ffe600;
+
+}
+
+
+/* =====================================================
+   POSIÇÃO DOS BOTÕES
+   ===================================================== */
+
+
+/* AULA ZERO */
+
+#botao-aula-0 {
+
+    left: 2.6%;
+
+    top: 57.5%;
+
+}
+
+
+/* AULA 1 */
+
+#botao-aula-1 {
+
+    left: 32.5%;
+
+    top: 58.5%;
+
+}
+
+
+/* AULA 2 */
+
+#botao-aula-2 {
+
+    left: 20.5%;
+
+    top: 26.5%;
+
+}
+
+
+/* AULA 3 */
+
+#botao-aula-3 {
+
+    left: 48.3%;
+
+    top: 10%;
+
+}
+
+
+/* AULA 4 */
+
+#botao-aula-4 {
+
+    left: 80.1%;
+
+    top: 18%;
+
+}
+
+
+/* AULA 5 */
+
+#botao-aula-5 {
+
+    left: 56.6%;
+
+    top: 78.5%;
+
+}
+
+
+/* AULA 6 */
+
+#botao-aula-6 {
+
+    left: 90.2%;
+
+    top: 85.5%;
+
+}
+
+
+/* AULA 7 */
+
+#botao-aula-7 {
+
+    left: 93.5%;
+
+    top: 60.5%;
+
+}
+
+
+/* =====================================================
+   MENU DAS AULAS
+   ===================================================== */
+
+.menu-aula {
+
+    position: absolute;
+
+    z-index: 30;
+
+    width: 260px;
+
+    padding: 15px;
+
+    background: rgba(255, 255, 255, 0.97);
+
+    border: 4px solid #18cdb9;
+
+    border-radius: 20px;
+
+    box-shadow:
+        0 10px 25px rgba(0, 0, 0, 0.30);
+
+    display: none;
+
+    animation: aparecerMenu 0.18s ease;
+
+}
+
+
+.menu-aula.aberto {
+
+    display: block;
+
+}
+
+
+@keyframes aparecerMenu {
+
+    from {
+
+        opacity: 0;
+
+        transform: scale(0.90);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: scale(1);
+
+    }
+
+}
+
+
+/* =====================================================
+   CABEÇALHO DO MENU
+   ===================================================== */
+
+.menu-titulo {
+
+    margin: 0 0 4px 0;
+
+    font-family: "Baloo 2", cursive;
+
+    font-size: 25px;
+
+    font-weight: 800;
+
+    color: #174d47;
+
+}
+
+
+.menu-descricao {
+
+    display: block;
+
+    margin-bottom: 12px;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    color: #6a7775;
+
+}
+
+
+/* =====================================================
+   LINKS
+   ===================================================== */
+
+.menu-link {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 10px;
+
+    margin-top: 8px;
+
+    padding: 10px 12px;
+
+    text-decoration: none;
+
+    color: #253b39;
+
+    background: #eafff9;
+
+    border: 2px solid #b9eee5;
+
+    border-radius: 12px;
+
+    transition: 0.15s;
+
+}
+
+
+.menu-link:hover {
+
+    background: #fff6b7;
+
+    border-color: #ffd83d;
+
+    transform: translateX(3px);
+
+}
+
+
+.menu-link-conteudo {
+
+    display: flex;
+
+    flex-direction: column;
+
+}
+
+
+.menu-link-titulo {
+
+    font-weight: 800;
+
+    font-size: 14px;
+
+}
+
+
+.menu-link-subtitulo {
+
+    font-size: 11px;
+
+    color: #75827f;
+
+}
+
+
+.menu-seta {
+
+    font-size: 20px;
+
+    font-weight: bold;
+
+    color: #13aa99;
+
+}
+
+
+/* =====================================================
+   RESPONSIVIDADE
+   ===================================================== */
+
+@media (max-width: 800px) {
+
+    .menu-aula {
+
+        width: 210px;
+
+        padding: 11px;
+
+    }
+
+
+    .menu-titulo {
+
+        font-size: 19px;
+
+    }
+
+
+    .menu-link {
+
+        padding: 7px;
+
+    }
+
+
+    .menu-link-titulo {
+
+        font-size: 12px;
+
+    }
+
+
+    .menu-link-subtitulo {
+
+        font-size: 10px;
+
+    }
+
+
+    .businessman {
+
+        width: 9%;
+
+    }
+
+}

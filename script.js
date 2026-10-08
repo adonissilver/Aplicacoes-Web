@@ -182,25 +182,25 @@ const aulas = {
             {
                 titulo: "Link 5.1.a",
                 subtitulo: "Praticar",
-                url: "Aula5/link-5-1-a.html"
+                url: "Aula5/exerc51a/exemplo.html"
             },
 
             {
                 titulo: "Link 5.1.b",
                 subtitulo: "Praticar",
-                url: "Aula5/link-5-1-b.html"
+                url: "Aula5/exerc51b/exemplob.html"
             },
 
             {
                 titulo: "Link 5.2",
                 subtitulo: "Praticar",
-                url: "Aula5/link-5-2.html"
+                url: "Aula5/Aula52/exemplob.html"
             },
 
             {
                 titulo: "Link 5.3",
                 subtitulo: "Praticar",
-                url: "Aula5/link-5-3.html"
+                url: "Aula5/Aula53/exemplob.html"
             }
 
         ]

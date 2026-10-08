@@ -156,9 +156,9 @@ const aulas = {
         links: [
 
             {
-                titulo: "Acessar Aula 4",
+                titulo: "Aula 4 - 3.set.26",
                 subtitulo: "Ir para o conteúdo",
-                url: "Aula4/aula-4.html"
+                url: "https://ead.fcmsantacasasp.edu.br/ava/pluginfile.php/457499/mod_label/intro/dragon.webp"
             }
 
         ]
@@ -252,9 +252,9 @@ const aulas = {
         links: [
 
             {
-                titulo: "Acessar Aula 7",
+                titulo: "Revisão pré-Av1 Aula 7",
                 subtitulo: "Ir para o conteúdo",
-                url: "Aula7/aula-7.html"
+                url: "https://ead.fcmsantacasasp.edu.br/ava/course/section.php?id=77332"
             }
 
         ]

@@ -1,975 +1,630 @@
-// =====================================================
-// DADOS INICIAIS
-// =====================================================
+/* =========================================================
+   DADOS DAS AULAS
+   ========================================================= */
 
-const pacientesIniciais = [
-    {
-        nome: "Fulano de Tal",
-        cpf: "164.173.429-00",
-        queixa: "Estresse",
-        foto: "pexels_a.jpg"
+const aulas = {
+
+
+    /* =====================================================
+       AULA ZERO
+       ===================================================== */
+
+    0: {
+
+        titulo: "🧭 Aula Zero",
+
+        descricao: "O início da jornada",
+
+        links: [
+
+            {
+                titulo: "Acessar Aula Zero",
+                subtitulo: "Começar por aqui",
+                url: "https://adonissilver.github.io/Aplicacoes-Web/Aula0/Aulazero.html"
+            }
+
+        ]
+
     },
-    {
-        nome: "Beltrano da Silva",
-        cpf: "027.830.661-00",
-        queixa: "Ansiedade",
-        foto: "pexels_b.jpg"
+
+
+    /* =====================================================
+       AULA 1
+       ===================================================== */
+
+    1: {
+
+        titulo: "🏠 Aula 1",
+
+        descricao: "Introdução",
+
+        links: [
+
+            {
+                titulo: "Exercício 1.0",
+                subtitulo: "Praticar",
+                url: "Aula1/exercicio-1-0.html"
+            },
+
+            {
+                titulo: "Exercício 1.1",
+                subtitulo: "Praticar",
+                url: "Aula1/exercicio-1-1.html"
+            }
+
+        ]
+
     },
-    {
-        nome: "Ciclano dos Santos",
-        cpf: "142.470.762-00",
-        queixa: "Burnout",
-        foto: "pexels_c.jpg"
-    }
-];
 
-let listaPacientes = [];
 
+    /* =====================================================
+       AULA 2
+       ===================================================== */
 
-// =====================================================
-// ELEMENTOS DO HTML
-// =====================================================
+    2: {
 
-const selectPacientes =
-    document.getElementById("selectPacientes");
+        titulo: "🧮 Aula 2",
 
-const btnDetalhes =
-    document.getElementById("btnDetalhes");
+        descricao: "Fundamentos numéricos",
 
-const btnAdicionarPaciente =
-    document.getElementById("btnAdicionarPaciente");
+        links: [
 
-const btnSalvarJSON =
-    document.getElementById("btnSalvarJSON");
+            {
+                titulo: "Exercício 2.1",
+                subtitulo: "Praticar",
+                url: "Aula2/Exerc2_1/exercicio-2-1.html"
+            },
 
-const btnCarregarDados =
-    document.getElementById("btnCarregarDados");
+            {
+                titulo: "Exercício 2.2",
+                subtitulo: "Somatório e Produtório · Tarefa",
+                url: "Aula2/Exerc2_2/exercicio-2-2.html"
+            },
 
-const divNomePaciente =
-    document.getElementById("divNomePaciente");
+            {
+                titulo: "Exercício 2.3",
+                subtitulo: "Potência · Tarefa",
+                url: "Aula2/Exerc2_3/potencia/exercicio-2-3.1.html"
+            },
 
-const divCPF =
-    document.getElementById("divCPF");
+            {
+                titulo: "Exercício 2.3",
+                subtitulo: "Fatorial · Tarefa",
+                url: "Aula2/Exerc2_3/fatorial/exercicio-2-3.2.html"
+            },
 
-const divQueixa =
-    document.getElementById("divQueixa");
+            {
+                titulo: "Exercício 2.4",
+                subtitulo: "Combinação",
+                url: "Aula2/Exerc2_4/exercicio-2-4.html"
+            }
 
-const divFoto =
-    document.getElementById("divFoto");
+        ]
 
-const modalPaciente =
-    document.getElementById("modalPaciente");
+    },
 
-const formPaciente =
-    document.getElementById("formPaciente");
 
-const btnSalvarPaciente =
-    document.getElementById("btnSalvarPaciente");
+    /* =====================================================
+       AULA 3
+       ===================================================== */
 
-const inputNome =
-    document.getElementById("inputNome");
+    3: {
 
-const inputCPF =
-    document.getElementById("inputCPF");
+        titulo: "📊 Aula 3",
 
-const inputQueixa =
-    document.getElementById("inputQueixa");
+        descricao: "Exercícios da Aula 3",
 
-const inputFotoURL =
-    document.getElementById("inputFotoURL");
+        links: [
 
-const btnFecharModal =
-    document.getElementById("btnFecharModal");
+            {
+                titulo: "Exercícios — Aula 3",
+                subtitulo: "Abrir lista completa",
+                url: "Aula3/exercicios-aula-3.html"
+            }
 
-const inputArquivoJSON =
-    document.getElementById("inputArquivoJSON");
+        ]
 
+    },
 
-// =====================================================
-// MEMÓRIA DO NAVEGADOR
-// =====================================================
 
-function salvarNoLocalStorage() {
+    /* =====================================================
+       AULA 4
+       ===================================================== */
 
-    /*
-        JSON.stringify() converte a lista
-        de objetos para uma string JSON.
-    */
+    4: {
 
-    const dadosJSON =
-        JSON.stringify(listaPacientes);
+        titulo: "💻 Aula 4",
 
-    localStorage.setItem(
-        "listaPacientes",
-        dadosJSON
-    );
-}
+        descricao: "Conteúdo da Aula 4",
 
+        links: [
 
-function carregarDadosMemoria() {
+            {
+                titulo: "Acessar Aula 4",
+                subtitulo: "Ir para o conteúdo",
+                url: "Aula4/aula-4.html"
+            }
 
-    /*
-        Procura dados anteriormente salvos
-        no navegador.
-    */
+        ]
 
-    const dadosSalvos =
-        localStorage.getItem("listaPacientes");
+    },
 
 
-    /*
-        Se não houver dados salvos,
-        utiliza os pacientes iniciais.
-    */
+    /* =====================================================
+       AULA 5
+       ===================================================== */
 
-    if (dadosSalvos === null) {
+    5: {
 
-        listaPacientes = [
-            ...pacientesIniciais
-        ];
+        titulo: "🚀 Aula 5",
 
-        salvarNoLocalStorage();
+        descricao: "Exercícios da Aula 5",
 
-        return;
-    }
+        links: [
 
+            {
+                titulo: "Link 5.1.a",
+                subtitulo: "Praticar",
+                url: "Aula5/exerc51a/exemplo.html"
+            },
 
-    try {
+            {
+                titulo: "Link 5.1.b",
+                subtitulo: "Praticar",
+                url: "Aula5/exerc51b/exemplob.html"
+            },
 
-        /*
-            JSON.parse() converte a string JSON
-            novamente para objetos JavaScript.
-        */
+            {
+                titulo: "Link 5.2",
+                subtitulo: "Praticar",
+                url: "Aula5/Aula52/exemplob.html"
+            },
 
-        const dados =
-            JSON.parse(dadosSalvos);
+            {
+                titulo: "Link 5.3",
+                subtitulo: "Praticar",
+                url: "Aula5/aula53/exemplob.html"
+            }
 
+        ]
 
-        if (Array.isArray(dados)) {
+    },
 
-            listaPacientes = dados;
 
-        } else {
+    /* =====================================================
+       AULA 6
+       ===================================================== */
 
-            listaPacientes = [
-                ...pacientesIniciais
-            ];
-        }
+    6: {
 
-    } catch (erro) {
+        titulo: "💡 Aula 6",
 
-        console.error(
-            "Erro ao ler os dados salvos:",
-            erro
-        );
+        descricao: "Exercícios da Aula 6",
 
-        listaPacientes = [
-            ...pacientesIniciais
-        ];
-    }
-}
+        links: [
 
+            {
+                titulo: "Link 6.1.a",
+                subtitulo: "Praticar",
+                url: "Aula6/link-6-1-a.html"
+            },
 
-// =====================================================
-// LISTA DE PACIENTES
-// =====================================================
+            {
+                titulo: "Link 6.1.b",
+                subtitulo: "Praticar",
+                url: "Aula6/link-6-1-b.html"
+            }
 
-function atualizarListaPacientes() {
+        ]
 
-    /*
-        Limpa todas as opções da lista.
-    */
+    },
 
-    selectPacientes.innerHTML = "";
 
+    /* =====================================================
+       AULA 7
+       ===================================================== */
 
-    /*
-        Adiciona somente pacientes reais.
+    7: {
 
-        Não existe mais a opção:
-        "Selecione um paciente".
-    */
+        titulo: "🏆 Aula 7",
 
-    listaPacientes.forEach(
-        function (paciente, index) {
+        descricao: "Conteúdo da Aula 7",
 
-            const opcao =
-                new Option(
-                    paciente.nome,
-                    index
-                );
+        links: [
 
-            selectPacientes.add(
-                opcao
-            );
-        }
-    );
+            {
+                titulo: "Acessar Aula 7",
+                subtitulo: "Ir para o conteúdo",
+                url: "Aula7/aula-7.html"
+            }
 
+        ]
 
-    /*
-        Se houver pacientes, seleciona
-        automaticamente o primeiro.
-    */
-
-    if (listaPacientes.length > 0) {
-
-        selectPacientes.selectedIndex = 0;
-    }
-}
-
-
-// =====================================================
-// LIMPAR DETALHES
-// =====================================================
-
-function limparDetalhes() {
-
-    divNomePaciente.textContent = "-";
-
-    divCPF.textContent = "-";
-
-    divQueixa.textContent = "-";
-
-    divFoto.textContent = "-";
-}
-
-
-// =====================================================
-// MOSTRAR IMAGEM
-// =====================================================
-
-function mostrarImagem(
-    container,
-    endereco,
-    textoAlternativo
-) {
-
-    container.innerHTML = "";
-
-
-    /*
-        Se nenhuma URL foi informada,
-        mostra a mensagem "Sem foto".
-    */
-
-    if (endereco === "") {
-
-        container.textContent =
-            "Sem foto";
-
-        return;
     }
 
-
-    const imagem =
-        document.createElement("img");
+};
 
 
-    imagem.src =
-        endereco;
+
+/* =========================================================
+   ELEMENTOS DO HTML
+   ========================================================= */
+
+const mapa =
+    document.getElementById("mapa-container");
 
 
-    imagem.alt =
-        textoAlternativo;
+const menu =
+    document.getElementById("menu-aula");
 
 
-    /*
-        Se o endereço estiver errado
-        ou a imagem não puder ser carregada.
-    */
-
-    imagem.addEventListener(
-        "error",
-        function () {
-
-            container.textContent =
-                "Não foi possível carregar a foto";
-        }
-    );
+const botoes =
+    document.querySelectorAll(".botao-aula");
 
 
-    container.appendChild(
-        imagem
-    );
-}
+
+/* =========================================================
+   GUARDA QUAL AULA ESTÁ ABERTA
+   ========================================================= */
+
+let aulaAberta = null;
 
 
-// =====================================================
-// MOSTRAR DETALHES DO PACIENTE
-// =====================================================
 
-function mostrarDetalhesPaciente(index) {
+/* =========================================================
+   EVENTO DE CLIQUE NOS BOTÕES
+   ========================================================= */
 
-    const paciente =
-        listaPacientes[index];
+botoes.forEach(function(botao) {
 
 
-    if (!paciente) {
-
-        return;
-    }
+    botao.addEventListener("click", function(event) {
 
 
-    divNomePaciente.textContent =
-        paciente.nome;
+        event.stopPropagation();
 
 
-    divCPF.textContent =
-        paciente.cpf;
+        const numeroAula =
+            Number(botao.dataset.aula);
 
 
-    divQueixa.textContent =
-        paciente.queixa;
+        /* CLICOU NOVAMENTE NA MESMA AULA */
+
+        if (aulaAberta === numeroAula) {
 
 
-    mostrarImagem(
-        divFoto,
-        paciente.foto || "",
-        "Foto de " + paciente.nome
-    );
-}
+            fecharMenu();
 
-
-// =====================================================
-// INICIALIZAÇÃO DA LISTA
-// =====================================================
-
-/*
-    Primeiro recupera os pacientes salvos.
-
-    Depois preenche a lista visual.
-
-    Essa inicialização ocorre antes da
-    configuração dos botões do modal.
-*/
-
-carregarDadosMemoria();
-
-atualizarListaPacientes();
-
-
-// =====================================================
-// BOTÃO DETALHES
-// =====================================================
-
-btnDetalhes.addEventListener(
-    "click",
-    function () {
-
-        /*
-            Se a lista estiver vazia,
-            nenhum paciente poderá ser mostrado.
-        */
-
-        if (
-            listaPacientes.length === 0 ||
-            selectPacientes.value === ""
-        ) {
-
-            alert(
-                "Não existe paciente selecionado."
-            );
 
             return;
+
         }
 
 
-        const index =
-            Number(selectPacientes.value);
-
-
-        mostrarDetalhesPaciente(
-            index
+        abrirMenu(
+            numeroAula,
+            botao
         );
+
+
+    });
+
+
+});
+
+
+
+/* =========================================================
+   FUNÇÃO ABRIR MENU
+   ========================================================= */
+
+function abrirMenu(numeroAula, botao) {
+
+
+    const aula =
+        aulas[numeroAula];
+
+
+    if (!aula) {
+
+        return;
+
     }
-);
 
 
-// =====================================================
-// LIMPAR FORMULÁRIO
-// =====================================================
+    /* REMOVE DESTAQUE DO BOTÃO ANTERIOR */
 
-function limparFormulario() {
+    botoes.forEach(function(b) {
 
-    inputNome.value = "";
+        b.classList.remove("ativo");
 
-    inputCPF.value = "";
-
-    inputQueixa.value = "";
-
-    inputFotoURL.value = "";
-}
+    });
 
 
-// =====================================================
-// ABRIR MODAL
-// =====================================================
+    /* MARCA O BOTÃO ATUAL */
 
-function abrirModal() {
-
-    limparFormulario();
+    botao.classList.add("ativo");
 
 
-    modalPaciente.style.display =
-        "flex";
+    /* MONTA O CABEÇALHO DO MENU */
+
+    let conteudo = `
+
+        <h2 class="menu-titulo">
+
+            ${aula.titulo}
+
+        </h2>
 
 
-    modalPaciente.setAttribute(
-        "aria-hidden",
-        "false"
+        <span class="menu-descricao">
+
+            ${aula.descricao}
+
+        </span>
+
+    `;
+
+
+    /* MONTA OS LINKS */
+
+    aula.links.forEach(function(link) {
+
+
+        conteudo += `
+
+            <a
+                class="menu-link"
+                href="${link.url}"
+            >
+
+                <span class="menu-link-conteudo">
+
+
+                    <span class="menu-link-titulo">
+
+                        ✨ ${link.titulo}
+
+                    </span>
+
+
+                    <span class="menu-link-subtitulo">
+
+                        ${link.subtitulo}
+
+                    </span>
+
+
+                </span>
+
+
+                <span class="menu-seta">
+
+                    →
+
+                </span>
+
+
+            </a>
+
+        `;
+
+
+    });
+
+
+    /* COLOCA O CONTEÚDO NO MENU */
+
+    menu.innerHTML =
+        conteudo;
+
+
+    /* MOSTRA O MENU */
+
+    menu.classList.add(
+        "aberto"
     );
 
 
-    inputNome.focus();
+    /* POSICIONA O MENU */
+
+    posicionarMenu(botao);
+
+
+    /* GUARDA QUAL AULA ESTÁ ABERTA */
+
+    aulaAberta =
+        numeroAula;
+
+
 }
 
 
-// =====================================================
-// FECHAR MODAL
-// =====================================================
 
-function fecharModal() {
+/* =========================================================
+   POSICIONAR MENU
+   ========================================================= */
 
-    modalPaciente.style.display =
-        "none";
+function posicionarMenu(botao) {
 
 
-    modalPaciente.setAttribute(
-        "aria-hidden",
-        "true"
-    );
-}
+    const botaoRect =
+        botao.getBoundingClientRect();
 
 
-// =====================================================
-// EVENTOS DO MODAL
-// =====================================================
-
-btnAdicionarPaciente.addEventListener(
-    "click",
-    abrirModal
-);
+    const mapaRect =
+        mapa.getBoundingClientRect();
 
 
-btnFecharModal.addEventListener(
-    "click",
-    fecharModal
-);
+    let esquerda =
+
+        botaoRect.right
+        -
+        mapaRect.left
+        +
+        15;
 
 
-/*
-    Fecha o modal quando o usuário
-    clica na área escura da tela.
-*/
+    let topo =
 
-modalPaciente.addEventListener(
-    "click",
-    function (evento) {
-
-        if (evento.target === modalPaciente) {
-
-            fecharModal();
-        }
-    }
-);
+        botaoRect.top
+        -
+        mapaRect.top;
 
 
-// =====================================================
-// SALVAR PACIENTE
-// =====================================================
-
-function salvarPaciente(evento) {
-
-    /*
-        Impede que o formulário
-        recarregue a página.
-    */
-
-    if (evento) {
-
-        evento.preventDefault();
-    }
+    const larguraMenu =
+        menu.offsetWidth;
 
 
-    /*
-        Captura os valores digitados.
-    */
-
-    const nome =
-        inputNome.value.trim();
+    const alturaMenu =
+        menu.offsetHeight;
 
 
-    const cpf =
-        inputCPF.value.trim();
-
-
-    const queixa =
-        inputQueixa.value.trim();
-
-
-    const foto =
-        inputFotoURL.value.trim();
-
-
-    /*
-        Validação dos campos obrigatórios.
-
-        A URL da foto não é obrigatória.
-    */
+    /* SE NÃO COUBER À DIREITA
+       COLOCA À ESQUERDA */
 
     if (
-        nome === "" ||
-        cpf === "" ||
-        queixa === ""
+
+        esquerda
+        +
+        larguraMenu
+        >
+        mapaRect.width
+
     ) {
 
-        alert(
-            "Preencha nome, CPF e queixa."
-        );
 
-        return;
+        esquerda =
+
+            botaoRect.left
+            -
+            mapaRect.left
+            -
+            larguraMenu
+            -
+            15;
+
+
     }
 
 
-    /*
-        Cria o objeto do novo paciente.
-    */
+    /* SE PASSAR DA PARTE DE BAIXO
+       SOBE O MENU */
 
-    const novoPaciente = {
+    if (
 
-        nome: nome,
+        topo
+        +
+        alturaMenu
+        >
+        mapaRect.height
 
-        cpf: cpf,
-
-        queixa: queixa,
-
-        foto: foto
-    };
+    ) {
 
 
-    /*
-        Adiciona o paciente ao array.
-    */
+        topo =
 
-    listaPacientes.push(
-        novoPaciente
-    );
-
-
-    try {
-
-        /*
-            Salva a lista completa
-            no localStorage.
-        */
-
-        salvarNoLocalStorage();
-
-    } catch (erro) {
-
-        /*
-            Caso não seja possível salvar,
-            desfaz a inclusão no array.
-        */
-
-        listaPacientes.pop();
+            mapaRect.height
+            -
+            alturaMenu
+            -
+            10;
 
 
-        console.error(
-            "Erro ao salvar:",
-            erro
-        );
-
-
-        alert(
-            "Não foi possível salvar o paciente no navegador."
-        );
-
-
-        return;
     }
 
 
-    /*
-        Atualiza a lista visual.
+    /* EVITA PASSAR DO TOPO */
 
-        O novo paciente passa a aparecer
-        junto dos demais pacientes.
-    */
+    if (topo < 10) {
 
-    atualizarListaPacientes();
+        topo = 10;
 
-
-    /*
-        Descobre o índice do novo paciente.
-    */
-
-    const novoIndex =
-        listaPacientes.length - 1;
+    }
 
 
-    /*
-        Seleciona automaticamente
-        o paciente recém-cadastrado.
-    */
+    /* EVITA PASSAR DA ESQUERDA */
 
-    selectPacientes.value =
-        String(novoIndex);
+    if (esquerda < 10) {
 
+        esquerda = 10;
 
-    /*
-        Mostra automaticamente
-        os detalhes do paciente.
-    */
-
-    mostrarDetalhesPaciente(
-        novoIndex
-    );
+    }
 
 
-    fecharModal();
+    /* APLICA A POSIÇÃO */
+
+    menu.style.left =
+        esquerda + "px";
 
 
-    alert(
-        "Paciente salvo com sucesso!"
-    );
+    menu.style.top =
+        topo + "px";
+
+
 }
 
 
-/*
-    O clique no botão Salvar
-    executa diretamente a função.
-*/
 
-btnSalvarPaciente.addEventListener(
-    "click",
-    salvarPaciente
-);
+/* =========================================================
+   FECHAR MENU
+   ========================================================= */
+
+function fecharMenu() {
 
 
-/*
-    Evita que o formulário atualize
-    a página ao pressionar Enter.
-*/
-
-if (formPaciente) {
-
-    formPaciente.addEventListener(
-        "submit",
-        function (evento) {
-
-            evento.preventDefault();
-        }
+    menu.classList.remove(
+        "aberto"
     );
-}
 
 
-// =====================================================
-// ESCREVER E EXPORTAR JSON
-// =====================================================
+    menu.innerHTML = "";
 
-function escreverDadosJSON() {
 
-    /*
-        JSON.stringify() transforma os objetos
-        em uma string JSON.
+    botoes.forEach(function(botao) {
 
-        O número 4 deixa o arquivo formatado.
-    */
-
-    const dadosJSON =
-        JSON.stringify(
-            listaPacientes,
-            null,
-            4
+        botao.classList.remove(
+            "ativo"
         );
 
+    });
 
-    const arquivo =
-        new Blob(
-            [dadosJSON],
-            {
-                type: "application/json"
+
+    aulaAberta = null;
+
+
+}
+
+
+
+/* =========================================================
+   REDIMENSIONAMENTO DA TELA
+   ========================================================= */
+
+window.addEventListener(
+    "resize",
+    function() {
+
+
+        if (aulaAberta !== null) {
+
+
+            const botaoAtual =
+                document.querySelector(
+                    `[data-aula="${aulaAberta}"]`
+                );
+
+
+            if (botaoAtual) {
+
+                posicionarMenu(
+                    botaoAtual
+                );
+
             }
-        );
 
-
-    const url =
-        URL.createObjectURL(arquivo);
-
-
-    const link =
-        document.createElement("a");
-
-
-    link.href =
-        url;
-
-
-    link.download =
-        "pacientes.json";
-
-
-    document.body.appendChild(
-        link
-    );
-
-
-    link.click();
-
-
-    link.remove();
-
-
-    URL.revokeObjectURL(
-        url
-    );
-}
-
-
-// =====================================================
-// BOTÃO SALVAR JSON
-// =====================================================
-
-btnSalvarJSON.addEventListener(
-    "click",
-    function () {
-
-        /*
-            Primeiro salva os dados atuais
-            no navegador.
-        */
-
-        salvarNoLocalStorage();
-
-
-        /*
-            Depois exporta o arquivo.
-        */
-
-        escreverDadosJSON();
-    }
-);
-
-
-// =====================================================
-// BOTÃO CARREGAR DADOS
-// =====================================================
-
-btnCarregarDados.addEventListener(
-    "click",
-    function () {
-
-        /*
-            Limpa a seleção anterior para
-            permitir escolher o mesmo arquivo.
-        */
-
-        inputArquivoJSON.value = "";
-
-
-        /*
-            Abre o seletor de arquivos.
-        */
-
-        inputArquivoJSON.click();
-    }
-);
-
-
-// =====================================================
-// IMPORTAR JSON DO COMPUTADOR
-// =====================================================
-
-inputArquivoJSON.addEventListener(
-    "change",
-    function (evento) {
-
-        const arquivo =
-            evento.target.files[0];
-
-
-        if (!arquivo) {
-
-            return;
         }
 
 
-        const leitor =
-            new FileReader();
-
-
-        leitor.onload =
-            function (eventoLeitura) {
-
-                try {
-
-                    /*
-                        Obtém o conteúdo do arquivo
-                        como texto.
-                    */
-
-                    const textoJSON =
-                        eventoLeitura.target.result;
-
-
-                    /*
-                        Transforma a string JSON
-                        em objetos JavaScript.
-                    */
-
-                    const dadosImportados =
-                        JSON.parse(textoJSON);
-
-
-                    /*
-                        Verifica se o conteúdo
-                        é realmente uma lista.
-                    */
-
-                    if (
-                        !Array.isArray(
-                            dadosImportados
-                        )
-                    ) {
-
-                        throw new Error(
-                            "O JSON precisa conter uma lista."
-                        );
-                    }
-
-
-                    /*
-                        Substitui a lista atual
-                        pela lista importada.
-                    */
-
-                    listaPacientes =
-                        dadosImportados;
-
-
-                    /*
-                        Salva os dados importados
-                        no localStorage.
-                    */
-
-                    salvarNoLocalStorage();
-
-
-                    /*
-                        Atualiza a lista visual.
-                    */
-
-                    atualizarListaPacientes();
-
-
-                    /*
-                        Limpa os detalhes antigos.
-                    */
-
-                    limparDetalhes();
-
-
-                    alert(
-                        "Dados carregados com sucesso!"
-                    );
-
-                } catch (erro) {
-
-                    console.error(
-                        "Erro ao importar:",
-                        erro
-                    );
-
-
-                    alert(
-                        "Erro ao carregar o arquivo JSON."
-                    );
-                }
-            };
-
-
-        leitor.readAsText(
-            arquivo
-        );
     }
 );
-
-
-// =====================================================
-// CARREGAR pacientes.json UTILIZANDO FETCH
-// =====================================================
-
-async function carregarDadosJSON() {
-
-    try {
-
-        /*
-            Procura o arquivo pacientes.json
-            na mesma pasta da aplicação.
-        */
-
-        const resposta =
-            await fetch(
-                "pacientes.json"
-            );
-
-
-        if (!resposta.ok) {
-
-            throw new Error(
-                "Não foi possível carregar pacientes.json"
-            );
-        }
-
-
-        /*
-            Obtém o conteúdo como texto.
-        */
-
-        const textoJSON =
-            await resposta.text();
-
-
-        /*
-            Converte o texto JSON
-            em objetos JavaScript.
-        */
-
-        const dados =
-            JSON.parse(textoJSON);
-
-
-        if (!Array.isArray(dados)) {
-
-            throw new Error(
-                "Formato JSON inválido."
-            );
-        }
-
-
-        listaPacientes =
-            dados;
-
-
-        salvarNoLocalStorage();
-
-
-        atualizarListaPacientes();
-
-
-        limparDetalhes();
-
-
-        console.log(
-            "pacientes.json carregado com sucesso."
-        );
-
-    } catch (erro) {
-
-        console.error(
-            "Erro no fetch:",
-            erro
-        );
-    }
-}

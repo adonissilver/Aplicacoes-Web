@@ -224,13 +224,13 @@ const aulas = {
             {
                 titulo: "Link 6.1.a",
                 subtitulo: "Praticar",
-                url: "Aula6/link-6-1-a.html"
+                url: "Aula6/exerc61a/Exemplo6.1.html"
             },
 
             {
                 titulo: "Link 6.1.b",
                 subtitulo: "Praticar",
-                url: "Aula6/link-6-1-b.html"
+                url: "Aula6/exerc61b/Exercício6.1.html"
             }
 
         ]
